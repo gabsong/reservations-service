@@ -1,3 +1,3 @@
 test('sample test', () => {
-  expect(('CircleCI').toLowerCase()).toBe('circleci');
-});
+  expect(('CircleCI').toLowerCase()).toBe('circleci')
+})

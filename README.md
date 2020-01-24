@@ -1,13 +1,13 @@
 # Project Name
 
-> Project description
+> Reserve an "Airbnb space" module from Airbnb's listing page:
+https://www.airbnb.com/rooms/22193741?source_impression_id=p3_1579906589_LQ9VqHAkmwdOMg4i
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/light-matter/8bnb-calendar-module
+  - https://github.com/light-matter/8bnb-reviews-module
+  - https://github.com/light-matter/8bnb-ImageCarousel
 
 ## Table of Contents
 
@@ -23,8 +23,8 @@
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 6.13.0
-- etc
+- Node 12-LTS (erbium)
+- PostgreSQL 12.1
 
 ## Development
 
@@ -33,7 +33,6 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install webpack
 npm install
 ```
 
