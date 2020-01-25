@@ -1,7 +1,8 @@
 # Project Name
 
 > Reserve an "Airbnb space" module from Airbnb's listing page:
-https://www.airbnb.com/rooms/22193741?source_impression_id=p3_1579906589_LQ9VqHAkmwdOMg4i
+https://www.airbnb.com/rooms/22193741
+https://www.airbnb.com/rooms/18506534
 
 ## Related Projects
 

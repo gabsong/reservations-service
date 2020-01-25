@@ -12,6 +12,7 @@
 DROP TABLE IF EXISTS public.reservations;
 DROP TABLE IF EXISTS public.spaces;
 
+-- This table stores the Airbnb spaces and their prices (no dynamic pricing)
 CREATE TABLE public.spaces (
   id BIGSERIAL PRIMARY KEY,
   nightly_rate_cents INT NOT NULL,
@@ -21,6 +22,7 @@ CREATE TABLE public.spaces (
   max_guests INT NOT NULL
 );
 
+-- This table stores all reservations, and links to a space via the space_id
 CREATE TABLE public.reservations (
   id BIGSERIAL PRIMARY KEY,
   checkin_date DATE NOT NULL DEFAULT CURRENT_DATE,
@@ -28,10 +30,12 @@ CREATE TABLE public.reservations (
   space_id INT REFERENCES public.spaces (id)
 );
 
+-- Some sample data inserted into spaces
 INSERT INTO public.spaces (nightly_rate_cents, cleaning_fee_cents, service_fee_cents, tax_rate_percent, max_guests) VALUES
   (10000, 2500, 2000, 10, 2),
   (15000, 3000, 2500, 10, 4);
 
+-- Some sample data inserted into reservations
 INSERT INTO public.reservations (checkin_date, checkout_date, space_id) VALUES
   ('2020-02-01', '2020-02-07', 1),
   ('2020-02-08', '2020-02-10', 2);
