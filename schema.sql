@@ -39,3 +39,8 @@ INSERT INTO public.spaces (nightly_rate_cents, cleaning_fee_cents, service_fee_c
 INSERT INTO public.reservations (checkin_date, checkout_date, space_id) VALUES
   ('2020-02-01', '2020-02-07', 1),
   ('2020-02-08', '2020-02-10', 2);
+
+-- Test data format for SQL type:date (with DEFAULT)
+INSERT INTO public.reservations (space_id) VALUES
+  (1),
+  (1);

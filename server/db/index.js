@@ -18,6 +18,6 @@ pool.on('remove', () => {
 });
 
 // test query
-pool.query('SELECT * FROM spaces')
+pool.query('SELECT * FROM reservations')
   .then(res => console.log(res.rows))
   .catch(err => console.log(err.stack));
