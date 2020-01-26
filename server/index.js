@@ -3,6 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 const app = express();
 const port = 3015;
+const faker = require('./fakeData.js');
 const db = require('./db'); // test db connection
 
 // Middleware

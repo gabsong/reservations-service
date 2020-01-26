@@ -19,7 +19,8 @@ CREATE TABLE public.spaces (
   cleaning_fee_cents INT NOT NULL,
   service_fee_cents INT NOT NULL,
   tax_rate_percent INT NOT NULL,
-  max_guests INT NOT NULL
+  max_adult_guests INT NOT NULL,
+  min_stay_days INT NOT NULL
 );
 
 -- This table stores all reservations, and links to a space via the space_id
@@ -31,9 +32,9 @@ CREATE TABLE public.reservations (
 );
 
 -- Some sample data inserted into spaces
-INSERT INTO public.spaces (nightly_rate_cents, cleaning_fee_cents, service_fee_cents, tax_rate_percent, max_guests) VALUES
-  (10000, 2500, 2000, 10, 2),
-  (15000, 3000, 2500, 10, 4);
+INSERT INTO public.spaces (nightly_rate_cents, cleaning_fee_cents, service_fee_cents, tax_rate_percent, max_adult_guests, min_stay_days) VALUES
+  (10000, 2500, 2000, 10, 2, 2),
+  (15000, 3000, 2500, 10, 4, 3);
 
 -- Some sample data inserted into reservations
 INSERT INTO public.reservations (checkin_date, checkout_date, space_id) VALUES
