@@ -3,7 +3,6 @@ const path = require('path');
 const morgan = require('morgan');
 const app = express();
 const port = 3015;
-const db = require('./db'); // test db connection
 
 // Middleware
 app.use(morgan('dev')); // for logging http requests to the terminal

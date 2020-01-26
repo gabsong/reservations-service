@@ -17,7 +17,4 @@ pool.on('remove', () => {
   console.log('Client removed');
 });
 
-// test query
-pool.query('SELECT * FROM spaces')
-  .then(res => console.log(res.rows))
-  .catch(err => console.log(err.stack));
+module.exports = pool;
