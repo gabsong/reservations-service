@@ -1,4 +1,4 @@
-const { Pool, Client } = require('pg');
+const { Pool } = require('pg');
 
 // Postgres login information
 const pool = new Pool({
@@ -6,7 +6,7 @@ const pool = new Pool({
   user: 'student',
   database: 'eightbnb',
   password: null,
-  port: 5432
+  port: 5432,
 });
 
 // Event listener for DB connection open
