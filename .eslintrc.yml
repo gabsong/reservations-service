@@ -4,7 +4,7 @@ env:
   node: true
 extends:
   - 'plugin:react/recommended'
-  - hackreactor
+  - airbnb
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
@@ -16,3 +16,4 @@ parserOptions:
 plugins:
   - react
 rules: {}
+ignorePatterns: ['bundle.js', 'node_modules/']
