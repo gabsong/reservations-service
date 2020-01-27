@@ -10,4 +10,11 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use('/', express.static(path.join(__dirname, '../public'))); // for serving static files
 
+// this is a test
+const students = ['Vikas', 'Will', 'Jeremiah', 'Gabriel'];
+const studentRoutes = require('./routes/students');
+
+app.use('/students', studentRoutes);
+app.get('/test', (req, res) => res.json(students));
+
 module.exports = app;

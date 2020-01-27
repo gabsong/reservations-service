@@ -1,10 +1,12 @@
 const { Pool } = require('pg');
 
+const dbName = process.env.NODE_ENV === 'test' ? 'test' : 'eightbnb';
+
 // Postgres login information
 const pool = new Pool({
   host: 'localhost',
   user: 'student',
-  database: 'eightbnb',
+  database: dbName,
   password: null,
   port: 5432,
 });
