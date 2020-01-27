@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+const reservationsRouter = require('./routes/reservations.js');
 
 const app = express();
 
@@ -10,11 +11,7 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use('/', express.static(path.join(__dirname, '../public'))); // for serving static files
 
-// this is a test
-const students = ['Vikas', 'Will', 'Jeremiah', 'Gabriel'];
-const studentRoutes = require('./routes/students');
-
-app.use('/students', studentRoutes);
-app.get('/test', (req, res) => res.json(students));
+// Set up routes
+app.use('/students', reservationsRouter);
 
 module.exports = app;

@@ -4,95 +4,42 @@ const db = require('./db/index.js');
 const app = require('./app.js');
 
 beforeAll(async () => {
-  await db.query('CREATE TABLE students (id SERIAL PRIMARY KEY, name TEXT)');
+  const spaces = `CREATE TABLE public.spaces (
+    id BIGSERIAL PRIMARY KEY,
+    nightly_rate_cents INT NOT NULL,
+    cleaning_fee_cents INT NOT NULL,
+    service_fee_cents INT NOT NULL,
+    tax_rate_cents INT NOT NULL,
+    max_adult_guests INT NOT NULL,
+    min_stay_nights INT NOT NULL
+  )`;
+  const reservations = `CREATE TABLE public.reservations (
+    id BIGSERIAL PRIMARY KEY,
+    checkin_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    checkout_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    space_id INT REFERENCES public.spaces (id)
+  )`;
+  await db.query(spaces);
+  await db.query(reservations);
 });
 
 beforeEach(async () => {
-  // seed with some data
-  await db.query("INSERT INTO students (name) VALUES ('Elie'), ('Matt')");
+  const spaces = `INSERT INTO public.spaces (nightly_rate_cents, cleaning_fee_cents, service_fee_cents, tax_rate_cents, max_adult_guests, min_stay_nights) VALUES
+  (10000, 2500, 2000, 10, 2, 2),
+  (15000, 3000, 2500, 10, 4, 3)`;
+  const reservations = `INSERT INTO public.reservations (checkin_date, checkout_date, space_id) VALUES
+  ('2020-01-27', '2020-01-28', 1),
+  ('2020-01-29', '2020-01-31', 2)`;
+  await db.query(spaces);
+  await db.query(reservations);
 });
 
 afterEach(async () => {
-  await db.query('DELETE FROM students');
+  await db.query('DELETE FROM reservations');
+  await db.query('DELETE FROM spaces');
 });
 
 afterAll(async () => {
-  await db.query('DROP TABLE students');
+  await db.query('DROP TABLE reservations, spaces');
   db.end();
-});
-
-describe('GET /test', () => {
-  test('It should respond with string hello', async () => {
-    const response = await request(app).get('/test');
-    expect(response.body).toEqual(['Vikas', 'Will', 'Jeremiah', 'Gabriel']);
-    expect(response.statusCode).toBe(200);
-  });
-});
-
-describe('GET /students', () => {
-  test('It responds with an array of students', async () => {
-    const response = await request(app).get('/students');
-    expect(response.body.length).toBe(2);
-    expect(response.body[0]).toHaveProperty('id');
-    expect(response.body[0]).toHaveProperty('name');
-    expect(response.statusCode).toBe(200);
-  });
-});
-
-describe('POST /students', () => {
-  test('It responds with the newly created student', async () => {
-    const newStudent = await request(app)
-      .post('/students')
-      .send({
-        name: 'New Student',
-      });
-
-    // make sure we add it correctly
-    expect(newStudent.body).toHaveProperty('id');
-    expect(newStudent.body.name).toBe('New Student');
-    expect(newStudent.statusCode).toBe(200);
-
-    // make sure we have 3 students now
-    const response = await request(app).get('/students');
-    expect(response.body.length).toBe(3);
-  });
-});
-
-describe('PATCH /students/1', () => {
-  test('It responds with an updated student', async () => {
-    const newStudent = await request(app)
-      .post('/students')
-      .send({
-        name: 'Another one',
-      });
-    const updatedStudent = await request(app)
-      .patch(`/students/${newStudent.body.id}`)
-      .send({ name: 'updated' });
-    expect(updatedStudent.body.name).toBe('updated');
-    expect(updatedStudent.body).toHaveProperty('id');
-    expect(updatedStudent.statusCode).toBe(200);
-
-    // make sure we have 3 students
-    const response = await request(app).get('/students');
-    expect(response.body.length).toBe(3);
-  });
-});
-
-describe('DELETE /students/1', () => {
-  test('It responds with a message of Deleted', async () => {
-    const newStudent = await request(app)
-      .post('/students')
-      .send({
-        name: 'Another one',
-      });
-    const removedStudent = await request(app).delete(
-      `/students/${newStudent.body.id}`,
-    );
-    expect(removedStudent.body).toEqual({ message: 'Deleted' });
-    expect(removedStudent.statusCode).toBe(200);
-
-    // make sure we still have 2 students
-    const response = await request(app).get('/students');
-    expect(response.body.length).toBe(2);
-  });
 });
