@@ -12,6 +12,6 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use('/', express.static(path.join(__dirname, '../public'))); // for serving static files
 
 // Set up routes
-app.use('/students', reservationsRouter);
+app.use('/reservations', reservationsRouter);
 
 module.exports = app;
