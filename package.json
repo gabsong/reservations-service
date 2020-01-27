@@ -10,6 +10,7 @@
     "seed": "psql --username=student -d eightbnb < schema.sql && node server/seed/script.js",
     "build": "webpack --watch",
     "react-dev": "webpack-dev-server --open",
+    "test-dev": "jest --watchAll",
     "test": "jest",
     "start": "NODE_ENV=development nodemon server/index.js"
   },
