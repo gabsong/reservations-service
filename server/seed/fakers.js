@@ -7,15 +7,15 @@ const createSpace = (minPriceInCents, maxPriceInCents) => {
   const space = {};
   space.nightly_rate_cents = faker.random.number({
     min: minPriceInCents,
-    max: maxPriceInCents
+    max: maxPriceInCents,
   });
   space.cleaning_fee_cents = faker.random.number({
     min: Math.floor(space.nightly_rate_cents / 5),
-    max: Math.floor(space.nightly_rate_cents / 3)
+    max: Math.floor(space.nightly_rate_cents / 3),
   });
   space.service_fee_cents = faker.random.number({
     min: Math.floor(space.nightly_rate_cents / 8),
-    max: Math.floor(space.nightly_rate_cents / 6)
+    max: Math.floor(space.nightly_rate_cents / 6),
   });
   space.tax_rate_cents = Math.trunc(space.service_fee_cents / 10);
   space.max_adult_guests = faker.random.number({ min: 2, max: 6 });

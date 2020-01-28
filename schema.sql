@@ -30,15 +30,3 @@ CREATE TABLE public.reservations (
   checkout_date DATE NOT NULL DEFAULT CURRENT_DATE,
   space_id INT REFERENCES public.spaces (id)
 );
-
-/*
--- Some sample data inserted into spaces
-INSERT INTO public.spaces (nightly_rate_cents, cleaning_fee_cents, service_fee_cents, tax_rate_cents, max_adult_guests, min_stay_nights) VALUES
-  (10000, 2500, 2000, 10, 2, 2),
-  (15000, 3000, 2500, 10, 4, 3);
-
--- Some sample data inserted into reservations
-INSERT INTO public.reservations (checkin_date, checkout_date, space_id) VALUES
-  ('2020-01-27', '2020-01-28', 1),
-  ('2020-01-29', '2020-01-31', 2);
- */
