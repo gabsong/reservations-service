@@ -1,7 +1,7 @@
-const express = require('express');
-
-const router = express.Router();
+const Router = require('express-promise-router');
 const db = require('../db');
+
+const router = new Router();
 
 /**
  * Skipping best practice and giving the route to write to DB directly
@@ -14,7 +14,7 @@ const db = require('../db');
 router.get('/', async (req, res, next) => {
   try {
     const data = await db.query('SELECT * FROM reservations');
-    return res.json(data.rows);
+    return res.send(data.rows);
   } catch (err) {
     next(err);
   }
@@ -23,7 +23,7 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     const data = await db.query('INSERT INTO reservations (checkin_date, checkout_date, space_id) VALUES ($1, $2, $3) RETURNING *', [req.body.checkin_date, req.body.checkout_date, req.body.space_id]);
-    return res.json(data.rows[0]);
+    return res.send(data.rows[0]);
   } catch (err) {
     next(err);
   }
