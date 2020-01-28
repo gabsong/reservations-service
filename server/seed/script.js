@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const db = require('../db/index.js');
+=======
+const db = require('../db');
+>>>>>>> master
 const fakers = require('./fakers.js');
 
 // create spaces data seed
