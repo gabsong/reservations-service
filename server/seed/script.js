@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 const db = require('../db/index.js');
-=======
-const db = require('../db');
->>>>>>> master
 const fakers = require('./fakers.js');
 
 // create spaces data seed
@@ -22,13 +18,17 @@ while (reservationsCount > 0) {
 }
 
 // seed db using the promise pattern
-const spaceInsert = 'INSERT INTO public.spaces (nightly_rate_cents, cleaning_fee_cents, service_fee_cents, tax_rate_cents, max_adult_guests, min_stay_nights) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
+const spaceInsert = `INSERT INTO public.spaces
+  (nightly_rate_cents, cleaning_fee_cents, service_fee_cents, tax_rate_cents, max_adult_guests, min_stay_nights) VALUES
+  ($1, $2, $3, $4, $5, $6) RETURNING *`;
 const spacePromises = spaces.map((space) => db.query(spaceInsert, Object.values(space)));
 
 Promise.all(spacePromises)
   .then((res) => {
     console.log('Spaces:', res.length);
-    const reservationInsert = 'INSERT INTO public.reservations (checkin_date, checkout_date, space_id) VALUES ($1, $2, $3) RETURNING *';
+    const reservationInsert = `INSERT INTO public.reservations
+      (checkin_date, checkout_date, space_id) VALUES
+      ($1, $2, $3) RETURNING *`;
     return reservations.map((reservation) => db.query(reservationInsert, Object.values(reservation)));
   })
   .then((reservationPromises) => Promise.all(reservationPromises))

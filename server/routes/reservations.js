@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
     const data = await db.query('SELECT * FROM reservations');
     return res.send(data.rows);
   } catch (err) {
-    next(err);
+    return next(err);
   }
 });
 
@@ -25,7 +25,7 @@ router.post('/', async (req, res, next) => {
     const data = await db.query('INSERT INTO reservations (checkin_date, checkout_date, space_id) VALUES ($1, $2, $3) RETURNING *', [req.body.checkin_date, req.body.checkout_date, req.body.space_id]);
     return res.send(data.rows[0]);
   } catch (err) {
-    next(err);
+    return next(err);
   }
 });
 
