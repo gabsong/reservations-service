@@ -24,5 +24,3 @@ coverage
 build/
 dist/
 */bundle.*
-package-lock.json
-

@@ -10,8 +10,8 @@
     "seed": "psql --username=student -d eightbnb < schema.sql && node server/seed/script.js",
     "build": "webpack --watch",
     "react-dev": "webpack-dev-server --open",
-    "test-dev": "jest --coverage --watchAll",
-    "test": "jest --coverage",
+    "test-dev": "jest --config=jest.config.js --coverage --watchAll",
+    "test": "jest --config=jest.config.js --coverage",
     "start": "NODE_ENV=development nodemon server/server.js"
   },
   "dependencies": {
@@ -22,7 +22,6 @@
     "date-fns": "^2.9.0",
     "express": "^4.17.1",
     "express-promise-router": "^3.0.3",
-    "faker": "^4.1.0",
     "lodash": "^4.17.15",
     "morgan": "^1.9.1",
     "pg": "^7.17.1",

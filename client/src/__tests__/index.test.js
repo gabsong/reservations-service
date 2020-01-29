@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Reserve from '../Reserve';
+import { shallow, mount, render } from 'enzyme';
+import Reserve from '../Reserve.jsx';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Reserve />, div);
+  shallow(<Reserve />);
 });
 
 test('it works', () => {
