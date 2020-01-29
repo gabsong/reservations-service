@@ -68,7 +68,7 @@ describe('POST /reservations', () => {
       });
 
     // make sure we add it correctly
-    expect(newReservation.body.checkin_date).toBe('2099-01-01T08:00:00.000Z');
+    expect(newReservation.body.checkin_date.substring(0, 10)).toBe('2099-01-01');
     expect(newReservation.statusCode).toBe(200);
 
     // make sure we have 3 reservations now

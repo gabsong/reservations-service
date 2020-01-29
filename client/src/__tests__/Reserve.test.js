@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Reserve from '../Reserve';
+import Reserve from '../Reserve.jsx';
 
 describe('<Reserve />', () => {
   it('matches the snapshot', () => {
