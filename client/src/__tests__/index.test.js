@@ -1,11 +1,11 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Reserve from '../Reserve';
 
-// it('renders without crashing', () => {
-//   const div = document.createElement('div');
-//   ReactDOM.render(<App />, div);
-// });
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<Reserve />, div);
+});
 
 test('it works', () => {
   expect(1).toBe(1);
