@@ -23,9 +23,18 @@ exports[`<Reserve /> matches the snapshot 1`] = `
     </div>
   </div>
   <form>
+    <label>
+      Dates
+    </label>
     <div>
-      This is the DatePicker component
+      <input />
     </div>
+    <div>
+      <input />
+    </div>
+    <label>
+      Guests
+    </label>
     <div>
       This is the GuestPicker component
     </div>
@@ -35,6 +44,9 @@ exports[`<Reserve /> matches the snapshot 1`] = `
     <div>
       This is the SubmitButton component
     </div>
+    <label>
+      You won't be charged yet
+    </label>
   </form>
 </div>
 `;

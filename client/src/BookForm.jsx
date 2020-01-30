@@ -13,10 +13,14 @@ class BookForm extends React.Component {
   render() {
     return (
       <form>
+        <label>Dates</label>
         <DatePicker />
+        <DatePicker />
+        <label>Guests</label>
         <GuestPicker />
         <PriceChart />
         <SubmitButton />
+        <label>You won't be charged yet</label>
       </form>
     );
   }
