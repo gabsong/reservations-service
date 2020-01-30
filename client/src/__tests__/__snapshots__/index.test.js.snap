@@ -1,21 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Reserve /> matches snapshot 1`] = `
-<div>
-  <div>
-    PriceHeader
-  </div>
-  <div>
-    DatePicker
-  </div>
-  <div>
-    GuestPicker
-  </div>
-  <div>
-    PriceChart
-  </div>
-  <div>
-    SubmitButton
-  </div>
+<div
+  className="reserve-module"
+>
+  <PriceHeader />
+  <DatePicker />
+  <GuestPicker />
+  <PriceChart />
+  <SubmitButton />
 </div>
 `;
