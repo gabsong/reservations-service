@@ -1,3 +1,6 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/jsx-curly-brace-presence */
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 
 const PriceHeader = (props) => {
@@ -9,10 +12,10 @@ const PriceHeader = (props) => {
         ${props.nightlyRate} per night
       </div>
       <div className="review-info">
-        * {getRandomArbitrary(3, 5).toFixed(2)} ({Math.trunc(getRandomArbitrary(20, 200))} reviews)
+        * {'4.75'} ({200} reviews)
       </div>
     </div>
-  )
+  );
 };
 
 export default PriceHeader;
