@@ -9,6 +9,7 @@ exports[`<Reserve /> matches the snapshot 1`] = `
       className="price-info"
     >
       $
+      200
        per night
     </div>
     <div
@@ -21,17 +22,31 @@ exports[`<Reserve /> matches the snapshot 1`] = `
        reviews)
     </div>
   </div>
-  <div>
-    This is the DatePicker component
-  </div>
-  <div>
-    This is the GuestPicker component
-  </div>
-  <div>
-    This is the PriceChart component
-  </div>
-  <div>
-    This is the SubmitButton component
-  </div>
+  <form>
+    <label>
+      Dates
+    </label>
+    <div>
+      <input />
+    </div>
+    <div>
+      <input />
+    </div>
+    <label>
+      Guests
+    </label>
+    <div>
+      This is the GuestPicker component
+    </div>
+    <div>
+      This is the PriceChart component
+    </div>
+    <div>
+      This is the SubmitButton component
+    </div>
+    <label>
+      You won't be charged yet
+    </label>
+  </form>
 </div>
 `;

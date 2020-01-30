@@ -1,9 +1,6 @@
 import React from 'react';
 import PriceHeader from './PriceHeader.jsx';
-import DatePicker from './DatePicker.jsx';
-import GuestPicker from './GuestPicker.jsx';
-import PriceChart from './PriceChart.jsx';
-import SubmitButton from './SubmitButton.jsx';
+import BookForm from './BookForm.jsx';
 
 class Reserve extends React.Component {
   constructor(props) {
@@ -20,11 +17,8 @@ class Reserve extends React.Component {
   render() {
     return (
       <div className="reserve-module">
-        <PriceHeader />
-        <DatePicker />
-        <GuestPicker />
-        <PriceChart />
-        <SubmitButton />
+        <PriceHeader nightlyRate={this.state.nightlyRate} />
+        <BookForm />
       </div>
     );
   }

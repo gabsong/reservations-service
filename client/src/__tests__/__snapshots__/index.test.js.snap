@@ -4,10 +4,9 @@ exports[`<Reserve /> matches snapshot 1`] = `
 <div
   className="reserve-module"
 >
-  <PriceHeader />
-  <DatePicker />
-  <GuestPicker />
-  <PriceChart />
-  <SubmitButton />
+  <PriceHeader
+    nightlyRate={200}
+  />
+  <BookForm />
 </div>
 `;
