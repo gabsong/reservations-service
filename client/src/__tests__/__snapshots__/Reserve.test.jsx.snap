@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Reserve /> matches the snapshot 1`] = `
+<div
+  className="reserve-module"
+>
+  <div>
+    <div
+      className="price-info"
+    >
+      $
+       per night
+    </div>
+    <div
+      className="review-info"
+    >
+      * 
+      4.75
+       (
+      200
+       reviews)
+    </div>
+  </div>
+  <div>
+    This is the DatePicker component
+  </div>
+  <div>
+    This is the GuestPicker component
+  </div>
+  <div>
+    This is the PriceChart component
+  </div>
+  <div>
+    This is the SubmitButton component
+  </div>
+</div>
+`;
