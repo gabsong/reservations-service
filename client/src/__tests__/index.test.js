@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable import/extensions */
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json'; // for snapshotting the component
 import Reserve from '../Reserve.jsx';
 

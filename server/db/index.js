@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const { Pool } = require('pg');
 
 const dbName = process.env.NODE_ENV === 'test' ? 'test' : 'eightbnb';

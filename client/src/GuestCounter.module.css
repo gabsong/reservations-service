@@ -1,0 +1,12 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 1fr;
+  grid-column-gap: 1px;
+  height: 64px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

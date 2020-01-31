@@ -1,0 +1,14 @@
+.btn {
+  padding: 10px 22px 10px 22px;
+  border: 2px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 4px;
+  line-height: 22px;
+  display: block;
+  height: 38px;
+  width: 100%;
+  background-color: rgb(255, 90, 95);
+  font-size: 16px;
+  color: white;
+}

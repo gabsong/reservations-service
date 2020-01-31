@@ -1,21 +1,32 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable import/extensions */
 import React from 'react';
-
-// const DatePicker = (props) => (
-//   <div>This is the DatePicker component</div>
-// );
+import ArrowButton from './ArrowButton.jsx';
+import Month from './Month.jsx';
+import Calendar from './Calendar.jsx';
+import TextButton from './TextButton.jsx';
+import styles from './DatePicker.module.css';
 
 class DatePicker extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: '',
-    };
+    this.state = {};
   }
+
+  // add date functions
 
   render() {
     return (
       <div>
-        <input />
+        <div className={styles.box}>
+          <ArrowButton label="Prev" />
+          <Month />
+          <ArrowButton label="Next" />
+        </div>
+        <Calendar />
+        <div className={styles.btnText}>
+          <TextButton label="Clear dates" />
+        </div>
       </div>
     );
   }
