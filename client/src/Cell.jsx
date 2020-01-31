@@ -8,7 +8,7 @@ class Cell extends React.Component {
 
   render() {
     return (
-      <div>Some date from props</div>
+      <div>0</div>
     );
   }
 }

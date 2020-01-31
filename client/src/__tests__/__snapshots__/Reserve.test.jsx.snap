@@ -28,13 +28,13 @@ exports[`<Reserve /> matches the snapshot 1`] = `
         Dates
       </legend>
       <input
-        text="Check-in"
+        value="Check-in"
       />
       <div>
         arrow
       </div>
       <input
-        text="Checkout"
+        value="Checkout"
       />
       <div>
         <div>
@@ -153,9 +153,6 @@ exports[`<Reserve /> matches the snapshot 1`] = `
       <input
         type="hidden"
       />
-    </div>
-    <div>
-      This is the PriceChart component
     </div>
     <button
       type="button"

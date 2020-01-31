@@ -3,25 +3,37 @@ import { shallow } from 'enzyme';
 import BookForm from '../BookForm';
 
 describe('<BookForm />', () => {
-  it('has three labels', () => {
-    const wrapper = shallow(<BookForm />);
-    expect(wrapper.find('label')).toHaveLength(1);
-  });
-
-  it('has two DatePicker components', () => {
+  it('displays two DatePicker components', () => {
     const wrapper = shallow(<BookForm />);
     expect(wrapper.find('DatePicker')).toHaveLength(2);
   });
 
-  it('shows calendar component on click', () => {
+  it('displays "Check-in" as default text', () => {
     const wrapper = shallow(<BookForm />);
+    expect(wrapper.containsMatchingElement(<input value="Check-in" />)).toBe(true);
   });
 
-  it('highlights input field on click', () => {
+  it('displays "Checkout" as default text', () => {
     const wrapper = shallow(<BookForm />);
+    expect(wrapper.containsMatchingElement(<input value="Checkout" />)).toBe(true);
   });
 
-  it('closes calendar component on click outside the component', () => {
-    // test code
+  it('displays a GuestPicker components', () => {
+    const wrapper = shallow(<BookForm />);
+    expect(wrapper.find('GuestPicker')).toHaveLength(1);
   });
+
+  it('does not display PriceChart component by default', () => {
+    const wrapper = shallow(<BookForm />);
+    expect(wrapper.find('PriceChart')).toHaveLength(0);
+  });
+
+  // maybe change to check className
+  it('displays a Reserve button', () => {
+    const wrapper = shallow(<BookForm />);
+    expect(wrapper.find('Button')).toHaveLength(1);
+  });
+
+  // state-related tests (later)
+  // displays PriceChart when dates are filled
 });

@@ -1,9 +1,9 @@
 import React from 'react';
 import Cell from './Cell.jsx';
+import styles from './Row.module.css';
 
 const Row = () => (
-  <div>
-    Row component with Cells
+  <div className={styles.row}>
     <Cell />
     <Cell />
     <Cell />

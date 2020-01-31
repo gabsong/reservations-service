@@ -3,7 +3,13 @@ import Row from './Row.jsx';
 
 const Calendar = () => (
   <div>
-    Calendar Component with Rows
+    Calendar
+    <Row />
+    <Row />
+    <Row />
+    <Row />
+    <Row />
+    <Row />
     <Row />
   </div>
 );

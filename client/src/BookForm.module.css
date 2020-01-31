@@ -1,0 +1,12 @@
+.box {
+  display: flex;
+  justify-content: space-between;
+  border: 1px;
+  border-style: solid;
+  border-color: rgb(228, 228, 228);
+}
+
+input {
+  width: 148px;
+  height: 38px;
+}

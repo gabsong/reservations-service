@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.button {
+  display: block;
+  height: 38px;
+  width: 100%;
+  background: transparent;
+}
