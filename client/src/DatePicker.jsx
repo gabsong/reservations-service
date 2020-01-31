@@ -17,7 +17,7 @@ class DatePicker extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <div className={styles.box}>
           <ArrowButton label="prev" />
           <Month />
