@@ -1,6 +1,5 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/jsx-curly-brace-presence */
-/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable linebreak-style */
+/* eslint-disable import/extensions */
 import React from 'react';
 
 const PriceHeader = (props) => {
