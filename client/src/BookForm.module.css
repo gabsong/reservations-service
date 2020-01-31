@@ -1,12 +1,24 @@
 .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: 1px;
   border-style: solid;
   border-color: rgb(228, 228, 228);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.arrow {
+  height: 24px;
+  width: 24px;
+  display: block;
+  fill: currentcolor;
 }
 
 input {
-  width: 148px;
+  width: 144px;
   height: 38px;
+  font-size: 16px;
+  font-weight: 400;
 }
