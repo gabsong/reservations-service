@@ -5,7 +5,7 @@ import Cell from './Cell.jsx';
 import styles from './Row.module.css';
 
 const Row = () => (
-  <div className={styles.row}>
+  <div className={styles.wrapper}>
     <Cell />
     <Cell />
     <Cell />
