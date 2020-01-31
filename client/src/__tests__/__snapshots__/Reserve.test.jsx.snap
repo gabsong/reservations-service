@@ -2,7 +2,7 @@
 
 exports[`<Reserve /> matches the snapshot 1`] = `
 <div
-  className="reserve-module"
+  className="wrapper"
 >
   <div>
     <div

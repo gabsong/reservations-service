@@ -3,6 +3,7 @@
 import React from 'react';
 import PriceHeader from './PriceHeader.jsx';
 import BookForm from './BookForm.jsx';
+import styles from './Reserve.module.css';
 
 class Reserve extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Reserve extends React.Component {
 
   render() {
     return (
-      <div className="reserve-module">
+      <div className={styles.wrapper}>
         <PriceHeader nightlyRate={this.state.nightlyRate} />
         <BookForm />
         <div>You won&apos;t be charged yet</div>
