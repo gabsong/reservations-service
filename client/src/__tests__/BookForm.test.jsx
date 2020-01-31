@@ -10,12 +10,12 @@ describe('<BookForm />', () => {
 
   it('displays "Check-in" as default text', () => {
     const wrapper = shallow(<BookForm />);
-    expect(wrapper.containsMatchingElement(<input value="Check-in" />)).toBe(true);
+    expect(wrapper.containsMatchingElement(<input placeholder="Check-in" />)).toBe(true);
   });
 
   it('displays "Checkout" as default text', () => {
     const wrapper = shallow(<BookForm />);
-    expect(wrapper.containsMatchingElement(<input value="Checkout" />)).toBe(true);
+    expect(wrapper.containsMatchingElement(<input placeholder="Checkout" />)).toBe(true);
   });
 
   it('displays a GuestPicker components', () => {

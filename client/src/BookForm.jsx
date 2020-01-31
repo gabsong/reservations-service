@@ -23,7 +23,7 @@ class BookForm extends React.Component {
   render() {
     return (
       <form>
-        <div>Dates</div>
+        <div className={styles.form}>Dates</div>
         <div className={styles.container}>
           <input value={this.state.checkinDate} placeholder="Check-in" />
           <div>
@@ -44,7 +44,7 @@ class BookForm extends React.Component {
         </div>
         <DatePicker />
         <DatePicker />
-        <label>Guests</label>
+        <div className={styles.form}>Guests</div>
         <GuestPicker />
         <input type="hidden" value={this.state.adults} />
         <input type="hidden" value={this.state.children} />

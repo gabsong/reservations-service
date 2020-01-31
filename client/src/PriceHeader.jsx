@@ -7,7 +7,7 @@ const PriceHeader = (props) => {
   const getRandomArbitrary = (min, max) => Math.random() * (max - min) + min;
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className="price-info">
         <span className={styles.price}>${props.nightlyRate}</span> <span className={styles.type}>per night</span>
       </div>

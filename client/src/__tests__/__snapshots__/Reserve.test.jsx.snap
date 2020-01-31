@@ -4,7 +4,9 @@ exports[`<Reserve /> matches the snapshot 1`] = `
 <div
   className="wrapper"
 >
-  <div>
+  <div
+    className="container"
+  >
     <div
       className="price-info"
     >
@@ -44,39 +46,71 @@ exports[`<Reserve /> matches the snapshot 1`] = `
     </div>
   </div>
   <form>
-    <div>
+    <div
+      className="form"
+    >
       Dates
     </div>
     <div
       className="container"
     >
       <input
-        value="Check-in"
+        placeholder="Check-in"
+        value=""
       />
       <div>
-         to 
+        <svg
+          aria-hidden="true"
+          className="arrow"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m0 12.5a.5.5 0 0 0 .5.5h21.79l-6.15 6.15a.5.5 0 1 0 .71.71l7-7v-.01a.5.5 0 0 0 .14-.35.5.5 0 0 0 -.14-.35v-.01l-7-7a .5.5 0 0 0 -.71.71l6.15 6.15h-21.79a.5.5 0 0 0 -.5.5z"
+            fillRule="evenodd"
+          />
+        </svg>
       </div>
       <input
-        value="Checkout"
+        placeholder="Checkout"
       />
     </div>
     <div>
       <div
         className="box"
       >
-        <button
-          type="button"
+        <div
+          className="btn"
+          role="button"
         >
-          Prev
-        </button>
-        <div>
-          Month component
+          <svg
+            focusable="false"
+            viewBox="0 0 1000 1000"
+          >
+            <path
+              d="M336 275L126 485h806c13 0 23 10 23 23s-10 23-23 23H126l210 210c11 11 11 21 0 32-5 5-10 7-16 7s-11-2-16-7L55 524c-11-11-11-21 0-32l249-249c21-22 53 10 32 32z"
+            />
+          </svg>
         </div>
-        <button
-          type="button"
+        <div
+          className="text"
         >
-          Next
-        </button>
+          February 2020
+        </div>
+        <div
+          className="btn"
+          role="button"
+        >
+          <svg
+            focusable="false"
+            viewBox="0 0 1000 1000"
+          >
+            <path
+              d="M694 242l249 250c12 11 12 21 1 32L694 773c-5 5-10 7-16 7s-11-2-16-7c-11-11-11-21 0-32l210-210H68c-13 0-23-10-23-23s10-23 23-23h806L662 275c-21-22 11-54 32-33z"
+            />
+          </svg>
+        </div>
       </div>
       <div>
         Calendar
@@ -271,19 +305,37 @@ exports[`<Reserve /> matches the snapshot 1`] = `
       <div
         className="box"
       >
-        <button
-          type="button"
+        <div
+          className="btn"
+          role="button"
         >
-          Prev
-        </button>
-        <div>
-          Month component
+          <svg
+            focusable="false"
+            viewBox="0 0 1000 1000"
+          >
+            <path
+              d="M336 275L126 485h806c13 0 23 10 23 23s-10 23-23 23H126l210 210c11 11 11 21 0 32-5 5-10 7-16 7s-11-2-16-7L55 524c-11-11-11-21 0-32l249-249c21-22 53 10 32 32z"
+            />
+          </svg>
         </div>
-        <button
-          type="button"
+        <div
+          className="text"
         >
-          Next
-        </button>
+          February 2020
+        </div>
+        <div
+          className="btn"
+          role="button"
+        >
+          <svg
+            focusable="false"
+            viewBox="0 0 1000 1000"
+          >
+            <path
+              d="M694 242l249 250c12 11 12 21 1 32L694 773c-5 5-10 7-16 7s-11-2-16-7c-11-11-11-21 0-32l210-210H68c-13 0-23-10-23-23s10-23 23-23h806L662 275c-21-22 11-54 32-33z"
+            />
+          </svg>
+        </div>
       </div>
       <div>
         Calendar
@@ -474,9 +526,11 @@ exports[`<Reserve /> matches the snapshot 1`] = `
         </button>
       </div>
     </div>
-    <label>
+    <div
+      className="form"
+    >
       Guests
-    </label>
+    </div>
     <div>
       <div
         className="container"
