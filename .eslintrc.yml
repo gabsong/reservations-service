@@ -17,4 +17,8 @@ parserOptions:
 plugins:
   - react
 rules: {}
-ignorePatterns: ['bundle.js', 'node_modules/']
+ignorePatterns: [
+  'bundle.js',
+  'node_modules/',
+  '__snapshots__/'
+  ]

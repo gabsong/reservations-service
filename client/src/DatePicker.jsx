@@ -1,24 +1,18 @@
 import React from 'react';
+import Button from './Button.jsx';
+import Month from './Month.jsx';
+import Calendar from './Calendar.jsx';
 
-// const DatePicker = (props) => (
-//   <div>This is the DatePicker component</div>
-// );
-
-class DatePicker extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: '',
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <input />
-      </div>
-    );
-  }
-}
+const DatePicker = (props) => (
+  <div>
+    <div>
+      <Button label="Prev" />
+      <Month />
+      <Button label="Next" />
+    </div>
+    <Calendar />
+    <Button label="Clear dates" />
+  </div>
+);
 
 export default DatePicker;

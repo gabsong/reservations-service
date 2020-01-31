@@ -8,5 +8,8 @@ exports[`<Reserve /> matches snapshot 1`] = `
     nightlyRate={200}
   />
   <BookForm />
+  <div>
+    You won't be charged yet
+  </div>
 </div>
 `;

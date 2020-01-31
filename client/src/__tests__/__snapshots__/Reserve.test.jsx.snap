@@ -23,30 +23,148 @@ exports[`<Reserve /> matches the snapshot 1`] = `
     </div>
   </div>
   <form>
-    <label>
-      Dates
-    </label>
-    <div>
-      <input />
-    </div>
-    <div>
-      <input />
-    </div>
+    <fieldset>
+      <legend>
+        Dates
+      </legend>
+      <input
+        text="Check-in"
+      />
+      <div>
+        arrow
+      </div>
+      <input
+        text="Checkout"
+      />
+      <div>
+        <div>
+          <button
+            type="button"
+          >
+            Prev
+          </button>
+          <div>
+            Month component
+          </div>
+          <button
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+        <div>
+          Calendar Component with Rows
+          <div>
+            Row component with Cells
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+          </div>
+        </div>
+        <button
+          type="button"
+        >
+          Clear dates
+        </button>
+      </div>
+      <div>
+        <div>
+          <button
+            type="button"
+          >
+            Prev
+          </button>
+          <div>
+            Month component
+          </div>
+          <button
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+        <div>
+          Calendar Component with Rows
+          <div>
+            Row component with Cells
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+            <div>
+              Some date from props
+            </div>
+          </div>
+        </div>
+        <button
+          type="button"
+        >
+          Clear dates
+        </button>
+      </div>
+    </fieldset>
     <label>
       Guests
     </label>
     <div>
-      This is the GuestPicker component
+      <button
+        type="button"
+      >
+        This is the GuestPicker dropdown
+      </button>
+      <input
+        type="hidden"
+      />
+      <input
+        type="hidden"
+      />
+      <input
+        type="hidden"
+      />
     </div>
     <div>
       This is the PriceChart component
     </div>
-    <div>
-      This is the SubmitButton component
-    </div>
-    <label>
-      You won't be charged yet
-    </label>
+    <button
+      type="button"
+    >
+      Reserve
+    </button>
   </form>
+  <div>
+    You won't be charged yet
+  </div>
 </div>
 `;

@@ -1,3 +1,5 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable no-console */
 const db = require('../db/index.js');
 const fakers = require('./fakers.js');
 
@@ -11,9 +13,10 @@ while (spacesCount > 0) {
 
 // create reservations data seed
 const reservations = [];
-let reservationsCount = 200;
+let reservationsCount = 100;
 while (reservationsCount > 0) {
-  reservations.push(fakers.createReservation(1, 20, '2020-02-01', '2020-06-30'));
+  const reservation = fakers.createReservation(1, 20, '2020-02-01', '2020-07-31');
+  reservations.push(reservation);
   reservationsCount -= 1;
 }
 
@@ -29,7 +32,9 @@ Promise.all(spacePromises)
     const reservationInsert = `INSERT INTO public.reservations
       (checkin_date, checkout_date, space_id) VALUES
       ($1, $2, $3) RETURNING *`;
-    return reservations.map((reservation) => db.query(reservationInsert, Object.values(reservation)));
+    return reservations.map((reservation) => {
+      return db.query(reservationInsert, Object.values(reservation));
+    });
   })
   .then((reservationPromises) => Promise.all(reservationPromises))
   .then((res) => console.log('Reservations:', res.length))

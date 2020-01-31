@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable camelcase */
 const faker = require('faker');
 const add = require('date-fns/add');
@@ -29,8 +30,8 @@ const createReservation = (firstSpaceId, lastSpaceId, firstCheckin, lastCheckin)
   const reservation = {};
   reservation.checkin_date = faker.date.between(firstCheckin, lastCheckin);
   const twoDaysAfter = add(reservation.checkin_date, { days: 2 });
-  const tenDaysAfter = add(reservation.checkin_date, { days: 10 });
-  reservation.checkout_date = faker.date.between(twoDaysAfter, tenDaysAfter);
+  const sevenDaysAfter = add(reservation.checkin_date, { days: 7 });
+  reservation.checkout_date = faker.date.between(twoDaysAfter, sevenDaysAfter);
   reservation.space_id = faker.random.number({ min: firstSpaceId, max: lastSpaceId });
 
   return reservation;

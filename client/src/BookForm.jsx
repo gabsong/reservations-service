@@ -1,26 +1,38 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import DatePicker from './DatePicker.jsx';
 import GuestPicker from './GuestPicker.jsx';
 import PriceChart from './PriceChart.jsx';
-import SubmitButton from './SubmitButton.jsx';
+import Button from './Button.jsx';
 
+// BookForm stores state for current reservation
 class BookForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      checkinDate: 'Check-in',
+      checkoutDate: 'Checkout',
+      adults: 1,
+      children: 0,
+      infants: 0,
+    };
   }
 
   render() {
     return (
       <form>
-        <label>Dates</label>
-        <DatePicker />
-        <DatePicker />
+        <fieldset>
+          <legend>Dates</legend>
+          <input text="Check-in" />
+          <div>arrow</div>
+          <input text="Checkout" />
+          <DatePicker />
+          <DatePicker />
+        </fieldset>
         <label>Guests</label>
         <GuestPicker />
         <PriceChart />
-        <SubmitButton />
-        <label>You won't be charged yet</label>
+        <Button label="Reserve" />
       </form>
     );
   }
