@@ -4,7 +4,11 @@
   justify-content: center;
 }
 
-.button {
+.dropdown {
+  padding: 0 16px;
+}
+
+.btn {
   display: block;
   height: 38px;
   width: 100%;

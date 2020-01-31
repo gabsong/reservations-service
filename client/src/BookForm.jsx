@@ -4,7 +4,7 @@ import React from 'react';
 import DatePicker from './DatePicker.jsx';
 import GuestPicker from './GuestPicker.jsx';
 import PriceChart from './PriceChart.jsx';
-import Button from './Button.jsx';
+import ReserveButton from './ReserveButton.jsx';
 import styles from './BookForm.module.css';
 
 // BookForm stores state for current reservation
@@ -24,7 +24,7 @@ class BookForm extends React.Component {
     return (
       <form>
         <div>Dates</div>
-        <div className={styles.box}>
+        <div className={styles.container}>
           <input value={this.state.checkinDate} />
           <div> to </div>
           <input value={this.state.checkoutDate} />
@@ -33,10 +33,13 @@ class BookForm extends React.Component {
         <DatePicker />
         <label>Guests</label>
         <GuestPicker />
+        <input type="hidden" value={this.state.adults} />
+        <input type="hidden" value={this.state.children} />
+        <input type="hidden" value={this.state.infants} />
         {this.state.checkinDate !== 'Check-in' &&
         this.state.checkinDate !== 'Checkout' &&
         <PriceChart />}
-        <Button label="Reserve" />
+        <ReserveButton label="Reserve" />
       </form>
     );
   }

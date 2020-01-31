@@ -13,6 +13,8 @@ class DatePicker extends React.Component {
     this.state = {};
   }
 
+  // add date functions
+
   render() {
     return (
       <div>
