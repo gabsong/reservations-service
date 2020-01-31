@@ -24,5 +24,8 @@ describe('<DatePicker />', () => {
     const wrapper = shallow(<DatePicker />);
   });
 
-  // state-related tests (later)
+  it('should find what the current month is', () => {
+    const wrapper = shallow(<DatePicker />);
+    console.log(wrapper.debug());
+  });
 });
