@@ -1,0 +1,30 @@
+.price {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.type {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.star {
+  display: block !important;
+  will-change: transform !important;
+  background-size: 9px 9px !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/…3 28-39 52-39 25 0 47 17 54 41l87 277h280c24 0 45 16 53 40z'/%3E%3C/svg%3E") !important;
+  height: 10px !important;
+  transform: none !important;
+  background-repeat: space no-repeat !important;
+}
+
+.rating {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.reviews {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(118, 118, 118);
+}

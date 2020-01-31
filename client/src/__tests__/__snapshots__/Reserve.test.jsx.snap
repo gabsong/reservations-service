@@ -8,18 +8,39 @@ exports[`<Reserve /> matches the snapshot 1`] = `
     <div
       className="price-info"
     >
-      $
-      200
-       per night
+      <span
+        className="price"
+      >
+        $
+        200
+      </span>
+       
+      <span
+        className="type"
+      >
+        per night
+      </span>
     </div>
     <div
       className="review-info"
     >
-      * 
-      4.75
-       (
-      200
-       reviews)
+      <span
+        className="star"
+      />
+      <span
+        className="rating"
+      >
+         
+        4.75
+         
+      </span>
+      <span
+        className="reviews"
+      >
+        (
+        200
+         reviews)
+      </span>
     </div>
   </div>
   <form>
