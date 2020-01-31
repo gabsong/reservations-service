@@ -31,7 +31,7 @@ describe('<BookForm />', () => {
   // maybe change to check className
   it('displays a Reserve button', () => {
     const wrapper = shallow(<BookForm />);
-    expect(wrapper.find('Button')).toHaveLength(1);
+    expect(wrapper.find('ReserveButton')).toHaveLength(1);
   });
 
   // state-related tests (later)
