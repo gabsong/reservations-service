@@ -91,7 +91,10 @@ exports[`<Reserve /> matches the snapshot 1`] = `
         >
           <div
             className="btn"
+            name="prev"
+            onClick={[Function]}
             role="button"
+            tabIndex="0"
           >
             <svg
               focusable="false"
@@ -109,7 +112,10 @@ exports[`<Reserve /> matches the snapshot 1`] = `
           </div>
           <div
             className="btn"
+            name="next"
+            onClick={[Function]}
             role="button"
+            tabIndex="0"
           >
             <svg
               focusable="false"

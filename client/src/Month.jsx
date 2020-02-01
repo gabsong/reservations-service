@@ -3,9 +3,9 @@
 import React from 'react';
 import styles from './Month.module.css';
 
-const Month = () => (
+const Month = (props) => (
   <div className={styles.text}>
-    February 2020
+    {props.label}
   </div>
 );
 
