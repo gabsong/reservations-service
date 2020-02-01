@@ -128,30 +128,28 @@ exports[`<Reserve /> matches the snapshot 1`] = `
           </div>
         </div>
         <div>
-          <div
-            className="wrapper"
-          >
-            <div>
-              0
-            </div>
-            <div>
-              0
-            </div>
-            <div>
-              0
-            </div>
-            <div>
-              0
-            </div>
-            <div>
-              0
-            </div>
-            <div>
-              0
-            </div>
-            <div>
-              0
-            </div>
+          <div>
+            <span>
+              Su 
+            </span>
+            <span>
+              Mo 
+            </span>
+            <span>
+              Tu 
+            </span>
+            <span>
+              We 
+            </span>
+            <span>
+              Th 
+            </span>
+            <span>
+              Fr 
+            </span>
+            <span>
+              Sa 
+            </span>
           </div>
           <div
             className="wrapper"

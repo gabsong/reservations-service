@@ -50,7 +50,7 @@ class DatePicker extends React.Component {
           <Month month={this.getCurrentMonthYear(selectedDate)} />
           <ArrowButton name="next" onClick={this.handleClickNext} />
         </div>
-        <Calendar dateToRender={selectedDate} />
+        <Calendar dateString={JSON.stringify(selectedDate)} />
         <div className={styles.btnText}>
           <TextButton name="Clear dates" />
         </div>
