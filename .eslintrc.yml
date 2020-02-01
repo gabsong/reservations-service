@@ -16,7 +16,8 @@ parserOptions:
   sourceType: module
 plugins:
   - react
-rules: {}
+rules:
+  space-before-function-paren: [1, 'always']
 ignorePatterns: [
   'bundle.js',
   'node_modules/',

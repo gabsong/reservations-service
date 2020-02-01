@@ -3,11 +3,6 @@ import { shallow } from 'enzyme';
 import BookForm from '../BookForm';
 
 describe('<BookForm />', () => {
-  it('displays two DatePicker components', () => {
-    const wrapper = shallow(<BookForm />);
-    expect(wrapper.find('DatePicker')).toHaveLength(2);
-  });
-
   it('displays "Check-in" as default text', () => {
     const wrapper = shallow(<BookForm />);
     expect(wrapper.containsMatchingElement(<input placeholder="Check-in" />)).toBe(true);
@@ -18,10 +13,10 @@ describe('<BookForm />', () => {
     expect(wrapper.containsMatchingElement(<input placeholder="Checkout" />)).toBe(true);
   });
 
-  it('displays a GuestPicker components', () => {
-    const wrapper = shallow(<BookForm />);
-    expect(wrapper.find('GuestPicker')).toHaveLength(1);
-  });
+  // it('displays a GuestPicker components after date input is clicked', () => {
+  //   const wrapper = shallow(<BookForm />);
+  //   expect(wrapper.find('GuestPicker')).toHaveLength(1);
+  // });
 
   it('does not display PriceChart component by default', () => {
     const wrapper = shallow(<BookForm />);
