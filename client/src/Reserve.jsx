@@ -22,7 +22,6 @@ class Reserve extends React.Component {
       <div className={styles.wrapper}>
         <PriceHeader nightlyRate={this.state.nightlyRate} />
         <BookForm />
-        <div>You won&apos;t be charged yet</div>
       </div>
     );
   }

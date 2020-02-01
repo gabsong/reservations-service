@@ -1,9 +1,21 @@
 .box {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .btnText {
   display: flex;
   justify-content: flex-end;
+}
+
+.container {
+  width: 332px;
+  height: 354px;
+  padding: 20px 24px 24px 24px;
+  border: 1px;
+  border-style: solid;
+  border-color: rgb(228, 228, 228);
+  border-radius: 3px;
+  z-index: 1;
 }

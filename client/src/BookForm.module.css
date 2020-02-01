@@ -1,12 +1,42 @@
+.form label {
+  margin-bottom: 4px;
+}
+
+.form span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.form input {
+  width: 144px;
+  height: 38px;
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 0 10px;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: 1px;
   border-style: solid;
   border-color: rgb(228, 228, 228);
+  font-size: 12px;
+  font-weight: 600;
 }
 
-input {
-  width: 148px;
-  height: 38px;
+.form {
+
+}
+
+.arrow {
+  height: 24px;
+  width: 24px;
+  display: block;
+  fill: currentcolor;
+}
+
+.fieldSet {
+  margin: 8px 0;
 }

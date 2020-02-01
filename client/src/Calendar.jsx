@@ -5,7 +5,6 @@ import Row from './Row.jsx';
 
 const Calendar = () => (
   <div>
-    Calendar
     <Row />
     <Row />
     <Row />
