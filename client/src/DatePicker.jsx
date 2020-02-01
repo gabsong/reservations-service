@@ -40,11 +40,12 @@ class DatePicker extends React.Component {
   }
 
   render () {
+    const { selectedDate } = this.state;
     return (
       <div className={styles.container}>
         <div className={styles.box}>
           <ArrowButton name="prev" onClick={this.handleclickPrev} />
-          <Month label={this.getCurrentMonthYear(this.state.selectedDate)} />
+          <Month label={this.getCurrentMonthYear(selectedDate)} />
           <ArrowButton name="next" onClick={this.handleClickNext} />
         </div>
         <Calendar />
