@@ -14,6 +14,7 @@ class DatePicker extends React.Component {
     this.state = {
       selectedDate: new Date(),
     };
+
     this.getCurrentMonthYear = this.getCurrentMonthYear.bind(this);
     this.handleclickPrev = this.handleclickPrev.bind(this);
     this.handleClickNext = this.handleClickNext.bind(this);
@@ -25,7 +26,7 @@ class DatePicker extends React.Component {
   componentWillUnmount () {
   }
 
-  static getCurrentMonthYear (rawDate) {
+  getCurrentMonthYear (rawDate) {
     return format(rawDate, 'MMMM yyyy');
   }
 

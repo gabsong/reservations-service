@@ -10,19 +10,19 @@ describe('<DatePicker />', () => {
   });
 
   it('shows check-in calendar on check-in click', () => {
-    const wrapper = shallow(<DatePicker />);
+    // const wrapper = shallow(<DatePicker />);
   });
 
   it('highlights input field on click', () => {
-    const wrapper = shallow(<DatePicker />);
+    // const wrapper = shallow(<DatePicker />);
   });
 
   it('shows check-out calendar on check-in date click', () => {
-    const wrapper = shallow(<DatePicker />);
+    // const wrapper = shallow(<DatePicker />);
   });
 
   it('hides calendar component on click outside the component', () => {
-    const wrapper = shallow(<DatePicker />);
+    // const wrapper = shallow(<DatePicker />);
   });
 
   it("saves today's date to its state", () => {

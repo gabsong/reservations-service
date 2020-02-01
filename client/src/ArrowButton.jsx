@@ -32,7 +32,7 @@ ArrowButton.propTypes = {
 
 ArrowButton.defaultProps = {
   name: '',
-  onClick: () => { console.log('onClick prop missing'); },
+  onClick: () => {},
 };
 
 export default ArrowButton;
