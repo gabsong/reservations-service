@@ -22,10 +22,10 @@ class DatePicker extends React.Component {
   componentDidMount () {
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
   }
 
-  getCurrentMonthYear (rawDate) {
+  static getCurrentMonthYear (rawDate) {
     return format(rawDate, 'MMMM yyyy');
   }
 
