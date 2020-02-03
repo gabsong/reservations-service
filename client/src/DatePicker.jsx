@@ -15,17 +15,12 @@ class DatePicker extends React.Component {
       selectedDate: new Date(),
     };
 
-    this.getCurrentMonthYear = this.getCurrentMonthYear.bind(this);
     this.handleclickPrev = this.handleclickPrev.bind(this);
     this.handleClickNext = this.handleClickNext.bind(this);
+    this.getCurrentMonthYear = this.getCurrentMonthYear.bind(this);
   }
 
-  componentDidMount () {
-  }
-
-  componentWillUnmount () {
-  }
-
+  // eslint-disable-next-line class-methods-use-this
   getCurrentMonthYear (rawDate) {
     return format(rawDate, 'MMMM yyyy');
   }
@@ -41,15 +36,15 @@ class DatePicker extends React.Component {
   }
 
   render () {
-    const { selectedDate } = this.state;
+    const { selectedDate, month, year } = this.state;
     return (
       <div className={styles.container}>
         <div className={styles.box}>
           <ArrowButton name="prev" onClick={this.handleclickPrev} />
-          <Month label={this.getCurrentMonthYear(selectedDate)} />
+          <Month month={this.getCurrentMonthYear(selectedDate)} />
           <ArrowButton name="next" onClick={this.handleClickNext} />
         </div>
-        <Calendar />
+        <Calendar selectedDate={selectedDate} />
         <div className={styles.btnText}>
           <TextButton name="Clear dates" />
         </div>
