@@ -1,39 +1,59 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { parseJSON } from 'date-fns';
+import {
+  startOfMonth,
+  startOfWeek,
+  addDays,
+  getDate,
+  getMonth,
+  getYear,
+  getISOWeek,
+} from 'date-fns';
 import Row from './Row.jsx';
 
-const Calendar = ({ dateString }) => {
-  console.log(parseJSON(dateString));
+const Calendar = ({ selectedDate }) => {
+  const addWeeks = (startDate, givenMonth, monthArray) => {
+    let currDate = startDate;
+    const week = [];
+    while (week.length < 7) {
+      week.push({
+        dateNum: getDate(currDate),
+        weekNum: `${getYear(currDate)}-${getISOWeek(currDate)}`,
+        render: getMonth(currDate) === givenMonth,
+      });
+      currDate = addDays(currDate, 1);
+    }
+    monthArray.push(week);
+
+    if (getMonth(currDate) === givenMonth) {
+      addWeeks(currDate, givenMonth, monthArray);
+    }
+  };
+
+  const collection = [];
+  const firstDay = startOfWeek(startOfMonth(selectedDate));
+  const currMonth = getMonth(selectedDate);
+  addWeeks(firstDay, currMonth, collection);
+
   return (
     <div>
       <div>
-        <span>Su </span>
-        <span>Mo </span>
-        <span>Tu </span>
-        <span>We </span>
-        <span>Th </span>
-        <span>Fr </span>
-        <span>Sa </span>
+        Su Mo Tu We Th Fr Sa (headers)
       </div>
-      <Row />
-      <Row />
-      <Row />
-      <Row />
-      <Row />
-      <Row />
+      {collection.map((week) => <Row week={week} key={week[0].weekNum} />)}
     </div>
   );
 };
 
 Calendar.propTypes = {
-  dateString: PropTypes.string,
+  selectedDate: PropTypes.object,
 };
 
 Calendar.defaultProps = {
-  dateString: '',
+  selectedDate: {},
 };
 
 export default Calendar;

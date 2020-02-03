@@ -11,8 +11,6 @@ describe('<DatePicker />', () => {
 
   it("saves today's date to its state", () => {
     const wrapper = shallow(<DatePicker />);
-    const datePickerInstance = wrapper.instance();
-    datePickerInstance.componentDidMount();
     const todayDate = format(new Date(), 'yyyy-MM-dd');
     expect(format(wrapper.state().selectedDate, 'yyyy-MM-dd')).toBe(todayDate);
   });
