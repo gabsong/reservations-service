@@ -34,4 +34,3 @@ Cell.defaultProps = {
 };
 
 export default Cell;
-

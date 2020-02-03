@@ -53,7 +53,9 @@ const Calendar = ({ selectedDate }) => {
         </ul>
       </div>
       <table className={styles.calendar}>
-        {collection.map((week) => <Row week={week} key={week[0].weekNum} />)}
+        <tbody>
+          {collection.map((week) => <Row week={week} key={week[0].weekNum} />)}
+        </tbody>
       </table>
     </div>
   );

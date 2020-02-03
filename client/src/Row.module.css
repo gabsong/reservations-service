@@ -1,3 +1,4 @@
-.wrapper {
+.row {
   display: table-row;
+  vertical-align: middle;
 }

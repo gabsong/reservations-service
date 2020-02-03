@@ -6,7 +6,7 @@ import Cell from './Cell.jsx';
 import styles from './Row.module.css';
 
 const Row = ({ week }) => (
-  <tr className={styles.wrapper}>
+  <tr className={styles.row}>
     {week.map((date) => <Cell date={date} key={date.dateNum} />)}
   </tr>
 );
