@@ -20,3 +20,6 @@ Row.defaultProps = {
 };
 
 export default Row;
+
+var obj = {};
+var { property } = obj; // saves the value on the word property

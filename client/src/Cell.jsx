@@ -7,11 +7,29 @@ import styles from './Cell.module.css';
 class Cell extends React.Component {
   constructor (props) {
     super(props);
-    this.state = this.props.date;
+    const { date } = this.props;
+    const { dateNum, weekNum, render } = date;
+
+    this.state = {
+      dateNum,
+      weekNum,
+      render,
+    };
+    this.handleOnMouseEnter = this.handleOnMouseEnter.bind(this);
+    this.handleOnMouseLeave = this.handleOnMouseLeave.bind(this);
+  }
+
+  handleOnMouseEnter () {
+
+  }
+
+  handleOnMouseLeave () {
+
   }
 
   render () {
-    const { dateNum } = this.state;
+    const { date } = this.props;
+    const { dateNum } = date;
     return (
       <td
         className={styles.cell}
