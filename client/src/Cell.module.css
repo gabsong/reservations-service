@@ -1,0 +1,31 @@
+.cell {
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: inherit;
+  width: 41px;
+  height: 40px;
+  color: rgb(72, 72, 72);
+  border: 1px double rgb(228, 231, 231);
+  background: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/*
+WHITE CELL
+<td class="_z39f86g" role="button" aria-disabled="true" aria-label="Not available Friday, January 3, 2020" tabindex="-1" style="width: 41px; height: 40px; border: 1px double rgb(228, 231, 231); color: rgb(0, 0, 0); background: rgb(255, 255, 255);"><span class="notranslate"><div class="_2v7stdx"><div class="_1fixpsj"><div class="_13m7kz7i">3</div></div></div></span></td>
+
+UNAVAIL CELL
+<td class="_z39f86g" role="button" aria-disabled="true" aria-label="Not available Saturday, January 4, 2020" tabindex="-1" style="width: 41px; height: 40px; border: 1px double rgb(228, 231, 231); color: rgb(0, 0, 0); background: rgb(255, 255, 255);"><span class="notranslate"><div class="_2v7stdx"><div class="_1fixpsj"><div class="_13m7kz7i">4</div></div></div></span></td>
+
+AVAILABLE
+<td class="_z39f86g" role="button" aria-disabled="true" aria-label="Not available Thursday, January 9, 2020" tabindex="-1" style="width: 41px; height: 40px; border: 1px double rgb(228, 231, 231); color: rgb(0, 0, 0); background: rgb(255, 255, 255);"><span class="notranslate"><div class="_2v7stdx"><div class="_1fixpsj"><div class="_13m7kz7i">9</div></div></div></span></td>
+
+SELECTED
+<td class="_z39f86g" role="button" aria-disabled="true" aria-label="Not available Tuesday, January 7, 2020" tabindex="-1" style="width: 41px; height: 40px; border: 1px double rgb(228, 231, 231); color: rgb(0, 0, 0); background: rgb(255, 255, 255);"><span class="notranslate"><div class="_2v7stdx"><div class="_1fixpsj"><div class="_13m7kz7i">7</div></div></div></span></td>
+
+HOVERED
+<td class="_z39f86g" role="button" aria-disabled="true" aria-label="Not available Tuesday, January 21, 2020" tabindex="-1" style="width: 41px; height: 40px; border: 1px double rgb(228, 231, 231); color: rgb(0, 0, 0); background: rgb(255, 255, 255);"><span class="notranslate"><div class="_2v7stdx"><div class="_1fixpsj"><div class="_13m7kz7i">21</div></div></div></span></td>
+*/
+

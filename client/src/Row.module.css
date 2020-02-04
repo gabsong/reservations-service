@@ -1,5 +1,4 @@
-.wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 1px;
+.row {
+  display: table-row;
+  vertical-align: middle;
 }

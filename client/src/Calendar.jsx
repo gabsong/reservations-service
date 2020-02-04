@@ -13,6 +13,7 @@ import {
   getISOWeek,
 } from 'date-fns';
 import Row from './Row.jsx';
+import styles from './Calendar.module.css';
 
 const Calendar = ({ selectedDate }) => {
   const addWeeks = (startDate, givenMonth, monthArray) => {
@@ -40,10 +41,22 @@ const Calendar = ({ selectedDate }) => {
 
   return (
     <div>
-      <div>
-        Su Mo Tu We Th Fr Sa (headers)
+      <div className={styles.header}>
+        <ul>
+          <li><small>Su</small></li>
+          <li><small>Mo</small></li>
+          <li><small>Tu</small></li>
+          <li><small>We</small></li>
+          <li><small>Th</small></li>
+          <li><small>Fr</small></li>
+          <li><small>Sa</small></li>
+        </ul>
       </div>
-      {collection.map((week) => <Row week={week} key={week[0].weekNum} />)}
+      <table className={styles.calendar}>
+        <tbody>
+          {collection.map((week) => <Row week={week} key={week[0].weekNum} />)}
+        </tbody>
+      </table>
     </div>
   );
 };
