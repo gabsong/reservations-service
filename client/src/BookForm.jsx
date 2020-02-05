@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import React from 'react';
@@ -9,7 +10,7 @@ import styles from './BookForm.module.css';
 
 // BookForm stores state for current reservation
 class BookForm extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       checkinDate: '',
@@ -20,7 +21,15 @@ class BookForm extends React.Component {
     };
   }
 
-  render() {
+  render () {
+    const {
+      checkinDate,
+      checkoutDate,
+      adults,
+      children,
+      infants,
+    } = this.state;
+
     return (
       <form className={styles.form}>
         <div className={styles.fieldSet}>
@@ -28,7 +37,7 @@ class BookForm extends React.Component {
             <span>Dates</span>
           </label>
           <div className={styles.container}>
-            <input value={this.state.checkinDate} placeholder="Check-in" />
+            <input value={checkinDate} placeholder="Check-in" />
             <div>
               <svg
                 className={styles.arrow}
@@ -43,12 +52,12 @@ class BookForm extends React.Component {
                 />
               </svg>
             </div>
-            <input value={this.state.Date} placeholder="Checkout" />
+            <input value={checkoutDate} placeholder="Checkout" />
           </div>
         </div>
         <div>
           <DatePicker spaceId="2" />
-          {this.state.checkinDate !== '' && <DatePicker />}
+          {checkinDate !== '' && <DatePicker />}
         </div>
         <div className={styles.fieldSet}>
           <label>
@@ -56,12 +65,14 @@ class BookForm extends React.Component {
           </label>
           <GuestPicker />
         </div>
-        <input type="hidden" value={this.state.adults} />
-        <input type="hidden" value={this.state.children} />
-        <input type="hidden" value={this.state.infants} />
-        {this.state.checkinDate !== ''
-          && this.state.checkinDate !== ''
-          && <PriceChart />}
+        <input type="hidden" value={adults} />
+        <input type="hidden" value={children} />
+        <input type="hidden" value={infants} />
+        {
+          checkinDate !== ''
+            && checkinDate !== ''
+            && <PriceChart />
+        }
         <div>
           <ReserveButton label="Reserve" />
           <div>You won&apos;t be charged yet</div>
