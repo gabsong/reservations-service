@@ -47,32 +47,36 @@ afterAll(async () => {
 
 // Integration testing
 describe('GET /reservations', () => {
-  test('It responds with an array of reservation objects', async () => {
-    const response = await request(app).get('/reservations');
-    expect(response.body.length).toBe(2);
-    expect(response.body[0]).toHaveProperty('checkin_date');
-    expect(response.body[0]).toHaveProperty('checkout_date');
-    expect(response.body[0]).toHaveProperty('space_id');
-    expect(response.statusCode).toBe(200);
+  test('It responds with an array of reservation objects', () => {
+    return request(app).get('/reservations')
+      .then((response) => {
+        expect(response.body.length).toBe(2);
+        expect(response.body[0]).toHaveProperty('checkin_date');
+        expect(response.body[0]).toHaveProperty('checkout_date');
+        expect(response.body[0]).toHaveProperty('space_id');
+        expect(response.statusCode).toBe(200);
+      })
+      .catch((error) => console.log(error));
   });
 });
 
 describe('POST /reservations', () => {
-  test('It responds with the newly added reservation', async () => {
-    const newReservation = await request(app)
+  test('It responds with the newly added reservation', () => {
+    return request(app)
       .post('/reservations')
       .send({
-        checkin_date: '2099-01-01',
-        checkout_date: '2099-12-31',
-        space_id: 1,
-      });
-
-    // make sure we add it correctly
-    expect(newReservation.body.checkin_date.substring(0, 10)).toBe('2099-01-01');
-    expect(newReservation.statusCode).toBe(200);
-
-    // make sure we have 3 reservations now
-    const response = await request(app).get('/reservations');
-    expect(response.body.length).toBe(3);
+        checkinDate: '2099-01-01',
+        checkoutDate: '2099-12-31',
+        spaceId: 1,
+      })
+      .then((response) => {
+        expect(response.body.checkin_date.substring(0, 10)).toBe('2099-01-01');
+        expect(response.statusCode).toBe(200);
+      })
+      .then(() => {
+        return request(app).get('/reservations');
+      })
+      .then((response) => expect(response.body.length).toBe(3))
+      .catch((error) => console.log(error));
   });
 });

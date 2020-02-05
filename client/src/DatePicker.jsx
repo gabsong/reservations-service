@@ -1,6 +1,9 @@
+/* eslint-disable react/no-unused-state */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import React from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 import { format, addMonths, subMonths } from 'date-fns';
 import ArrowButton from './ArrowButton.jsx';
 import Month from './Month.jsx';
@@ -11,13 +14,36 @@ import styles from './DatePicker.module.css';
 class DatePicker extends React.Component {
   constructor (props) {
     super(props);
+    const { spaceId } = this.props;
     this.state = {
+      spaceId,
       selectedDate: new Date(),
+      reservations: [],
     };
 
+    this.getReservations = this.getReservations.bind(this);
     this.handleclickPrev = this.handleclickPrev.bind(this);
     this.handleClickNext = this.handleClickNext.bind(this);
     this.getCurrentMonthYear = this.getCurrentMonthYear.bind(this);
+  }
+
+  componentDidMount () {
+    this.getReservations();
+  }
+
+  getReservations () {
+    const { spaceId } = this.state;
+    axios.get('/reservations', {
+      params: {
+        spaceId,
+      },
+    })
+      .then((response) => {
+        this.setState({ reservations: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -52,5 +78,13 @@ class DatePicker extends React.Component {
     );
   }
 }
+
+DatePicker.propTypes = {
+  spaceId: PropTypes.string,
+};
+
+DatePicker.defaultProps = {
+  spaceId: '',
+};
 
 export default DatePicker;

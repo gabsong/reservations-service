@@ -47,7 +47,7 @@ class BookForm extends React.Component {
           </div>
         </div>
         <div>
-          <DatePicker />
+          <DatePicker spaceId="2" />
           {this.state.checkinDate !== '' && <DatePicker />}
         </div>
         <div className={styles.fieldSet}>
