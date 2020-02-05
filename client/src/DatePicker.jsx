@@ -61,6 +61,14 @@ class DatePicker extends React.Component {
     this.setState({ selectedDate: addMonths(selectedDate, 1) });
   }
 
+  handleMouseEnter (event) {
+    event.target
+  }
+
+  handleMouseLeave (event) {
+    event.target
+  }
+
   render () {
     const { selectedDate, month, year } = this.state;
     return (

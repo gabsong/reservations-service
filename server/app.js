@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const reservationsRouter = require('./routes/reservations.js');
+const spacesRouter = require('./routes/spaces.js');
 
 const app = express();
 
@@ -13,5 +14,6 @@ app.use('/', express.static(path.join(__dirname, '../public'))); // for serving 
 
 // Set up routes
 app.use('/reservations', reservationsRouter);
+app.use('/spaces', spacesRouter);
 
 module.exports = app;
