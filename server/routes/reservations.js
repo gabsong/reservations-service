@@ -9,11 +9,18 @@ const router = new Router();
  * - Models: control DB access (require db)
  * - Controllers: handle app logic (require models)
  * ... then, connect controller methods to their corresponding routes
+ * In app.js: app.use('/reservations', reservationsRouter)
  */
 
 router.get('/', async (req, res, next) => {
   try {
-    const data = await db.query('SELECT * FROM reservations');
+    const { spaceId } = req.query;
+    let data;
+    if (!spaceId) {
+      data = await db.query('SELECT * FROM reservations ORDER BY checkin_date ASC');
+    } else {
+      data = await db.query('SELECT * FROM reservations WHERE space_id = $1 ORDER BY checkin_date ASC', [spaceId]);
+    }
     return res.send(data.rows);
   } catch (err) {
     return next(err);
@@ -22,7 +29,8 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const data = await db.query('INSERT INTO reservations (checkin_date, checkout_date, space_id) VALUES ($1, $2, $3) RETURNING *', [req.body.checkin_date, req.body.checkout_date, req.body.space_id]);
+    const { checkinDate, checkoutDate, spaceId } = req.body;
+    const data = await db.query('INSERT INTO reservations (checkin_date, checkout_date, space_id) VALUES ($1, $2, $3) RETURNING *', [checkinDate, checkoutDate, spaceId]);
     return res.send(data.rows[0]);
   } catch (err) {
     return next(err);

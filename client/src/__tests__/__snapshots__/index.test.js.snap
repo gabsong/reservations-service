@@ -5,8 +5,10 @@ exports[`<Reserve /> matches snapshot 1`] = `
   className="wrapper"
 >
   <PriceHeader
-    nightlyRate={200}
+    nightlyRate={0}
   />
-  <BookForm />
+  <BookForm
+    spaceId={0}
+  />
 </div>
 `;

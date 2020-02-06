@@ -14,7 +14,7 @@ exports[`<Reserve /> matches the snapshot 1`] = `
         className="price"
       >
         $
-        200
+        0
       </span>
        
       <span
