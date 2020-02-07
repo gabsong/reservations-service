@@ -2,10 +2,11 @@
 const { Pool } = require('pg');
 
 const dbName = process.env.NODE_ENV === 'test' ? 'test' : 'eightbnb';
+const hostname = process.env.NODE_ENV === 'development' ? 'localhost' : 'database';
 
 // Postgres login information
 const pool = new Pool({
-  host: 'localhost',
+  host: hostname,
   user: 'postgres',
   database: dbName,
   password: null,
