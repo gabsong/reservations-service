@@ -37,11 +37,9 @@ Create the required databases:
 ```sh
 CREATE DATABASE test;
 CREATE DATABASE eightbnb;
+CREATE USER student;
 \l
 ```
-
-Update the seed script in package.json to include your postgres user.
-Find your username by running `id -un` in the MacOS terminal.
 
 ### Installing Dependencies
 From within the root directory:
