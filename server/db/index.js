@@ -6,7 +6,7 @@ const dbName = process.env.NODE_ENV === 'test' ? 'test' : 'eightbnb';
 // Postgres login information
 const pool = new Pool({
   host: 'localhost',
-  user: 'student',
+  user: 'postgres',
   database: dbName,
   password: null,
   port: 5432,

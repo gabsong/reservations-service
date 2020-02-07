@@ -15,7 +15,6 @@ jobs:
       # - image: circleci/mongo:3.4.4
       - image: circleci/postgres:latest
         environment:
-          POSTGRES_USER: student
           POSTGRES_DB: test
 
     working_directory: ~/repo

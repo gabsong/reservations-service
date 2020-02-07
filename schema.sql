@@ -1,11 +1,11 @@
 /*
  *  Execute this file from the terminal
- *  `psql --username=student -d eightbnb < schema.sql`
+ *  `psql --username=postgres -d eightbnb < schema.sql`
  *  - `eightbnb` is the database (created beforehand)
- *  - `student` is the role (created beforehand)
+ *  - `postgres` is the role (created beforehand)
  *  Note: need to figure out hardening of DB
  *  - `ALTER ROLE <username> WITH ENCRYPTED PASSWORD '<password>';`
- *  - `\conninfo` => You are connected to database "eightbnb" as user "student"
+ *  - `\conninfo` => You are connected to database "eightbnb" as user "postgres"
  *                   via socket in "/tmp" at port "5432"
  */
 
