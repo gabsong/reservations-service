@@ -2,7 +2,7 @@
 const app = require('./app.js');
 
 let port = 80;
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'development') {
   port = 3001;
 }
 
