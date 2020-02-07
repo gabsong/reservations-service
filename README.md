@@ -37,7 +37,7 @@ Create the required databases:
 ```sh
 CREATE DATABASE test;
 CREATE DATABASE eightbnb;
-CREATE USER postgres;
+CREATE USER postgres SUPERUSER;
 \l
 ```
 
