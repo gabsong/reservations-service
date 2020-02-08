@@ -8,6 +8,7 @@
   },
   "scripts": {
     "seed": "psql --username=postgres -d eightbnb < schema.sql && node server/seed/script.js",
+    "docker": "NODE_ENV=production node server/seed/script.js",
     "build": "webpack",
     "webpack": "webpack-dev-server --open",
     "react-dev": "webpack --watch",
