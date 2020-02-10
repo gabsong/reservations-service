@@ -1,6 +1,6 @@
 {
   "name": "8bnb-reserve-module",
-  "description": "> Project description",
+  "description": "A space reservation module.",
   "author": "Gabriel Song <gabsong4@gmail.com>",
   "license": "ISC",
   "engines": {
