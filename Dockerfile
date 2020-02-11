@@ -6,4 +6,4 @@ COPY . .
 RUN npm install
 EXPOSE 80
 
-CMD [ "sh", "-c", "npm run docker && npm start" ]
+CMD [ "sh", "-c", "npm run build && npm start" ]
