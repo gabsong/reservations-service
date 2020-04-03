@@ -19,7 +19,7 @@ import {
 import Row from './Row.jsx';
 import styles from './Calendar.module.css';
 
-const Calendar = ({ reservations, selectedDate, handleCellClick }) => {
+const Calendar = ({ reservations, selectedDate, handleCellClick, checkinDate, checkoutDate }) => {
   // these are non-bookable dates
   const unavailableDays = new Set();
   for (let reservation of reservations) {
@@ -43,6 +43,7 @@ const Calendar = ({ reservations, selectedDate, handleCellClick }) => {
         weekNum: `${getYear(currDate)}-${getISOWeek(currDate)}`,
         render: getMonth(currDate) === givenMonth,
         booked: unavailableDays.has(currDate.toDateString()),
+        selected: false, // currDate.toDateString() === checkinDate.toDateString() || currDate.toDateString() === checkoutDate.toDateString()
       }
       week.push(day);
       currDate = addDays(currDate, 1);

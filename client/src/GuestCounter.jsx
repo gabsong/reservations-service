@@ -4,20 +4,20 @@ import React from 'react';
 import CounterButton from './CounterButton.jsx';
 import styles from './GuestCounter.module.css';
 
-const GuestCounter = (props) => (
+const GuestCounter = ({ label, description, guestCount, addCount, subCount }) => (
   <div className={styles.wrapper}>
     <div>
-      <div>{props.label}</div>
-      <div>{props.description}</div>
+      <div>{label}</div>
+      <div>{description}</div>
     </div>
     <div className={styles.item}>
-      <CounterButton label="-" />
+      <CounterButton label="-" guestType={label.toLowerCase()} handleOnClick={subCount} />
     </div>
     <div className={styles.item}>
-      0
+      {guestCount}
     </div>
     <div className={styles.item}>
-      <CounterButton label="+" />
+      <CounterButton label="+" guestType={label.toLowerCase()} handleOnClick={addCount} />
     </div>
   </div>
 );

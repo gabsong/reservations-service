@@ -4,19 +4,35 @@ import React from 'react';
 import GuestCounter from './GuestCounter.jsx';
 import styles from './GuestPicker.module.css';
 
-const GuestPicker = (props) => (
-  <div>
-    <div className={styles.container}>
-      <button type="button" className={styles.btn}>
-        GuestPicker dropdown
-      </button>
+const GuestPicker = ({ adults, children, infants, addCount, subCount }) => {
+  let totalGuestCount = ''
+
+  if (adults + children > 1) {
+    totalGuestCount += `${adults + children} adults`;
+  } else if (adults + children === 1) {
+    totalGuestCount += '1 adult';
+  }
+
+  if (infants > 1) {
+    totalGuestCount += ` , ${infants} infants`;
+  } else if (infants === 1) {
+    totalGuestCount += ', 1 infant';
+  }
+
+  return (
+    <div>
+      <div className={styles.container}>
+        <button type="button" className={styles.btn}>
+          {totalGuestCount}
+        </button>
+      </div>
+      <div className={styles.dropdown}>
+        <GuestCounter label="Adults" guestCount={adults} addCount={addCount} subCount={subCount} />
+        <GuestCounter label="Children" description="Ages 2–12" guestCount={children} addCount={addCount} subCount={subCount} />
+        <GuestCounter label="Infants" description="Under 2" guestCount={infants} addCount={addCount} subCount={subCount} />
+      </div>
     </div>
-    <div className={styles.dropdown}>
-      <GuestCounter label="Adults" />
-      <GuestCounter label="Children" description="Ages 2–12" />
-      <GuestCounter label="Infants" description="Under 2" />
-    </div>
-  </div>
-);
+  );
+};
 
 export default GuestPicker;

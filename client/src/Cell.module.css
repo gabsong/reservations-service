@@ -26,6 +26,15 @@
   background: rgb(255, 255, 255);
 }
 
+.selected {
+  composes: cell;
+}
+
+.selected:hover {
+  background-color: rgb(178, 241, 236);
+  border-color: rgb(128, 232, 224);
+}
+
 /*
  * selected: rgb(0, 166, 153) dark green
  * selected:hover rgb(178, 241, 236) extra-light green

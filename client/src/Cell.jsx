@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styles from './Cell.module.css';
 
 const Cell = ({ date, handleCellClick }) => {
-  const { currDate, dateNum, weekNum, render, booked } = date;
+  const { currDate, dateNum, weekNum, render, booked, selected } = date;
 
   // if not in month
   if (render === false) {
@@ -31,34 +31,6 @@ const Cell = ({ date, handleCellClick }) => {
       </td>
     );
   }
-    // no date shown
-    // not focusable
-    // not hoverable
-    // disabled style
-
-  // if not available
-    // cross out date
-    // not focusable
-    // not hoverable
-    // grey color text
-
-  // if available
-    // normal date
-    // focusable
-    // hoverable
-    // clickable
-
-  return (
-    <td
-      className={styles.cell}
-      aria-disabled="true"
-      tabindex={focusable}
-      role="button"
-      onClick={handleCellClick}
-    >
-      {render ? dateNum : ''}
-    </td>
-  );
 };
 
 Cell.propTypes = {

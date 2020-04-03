@@ -3,9 +3,9 @@
 import React from 'react';
 import styles from './CounterButton.module.css';
 
-const CounterButton = (props) => (
-  <button type="button" className={styles.btn}>
-    {props.label}
+const CounterButton = ({ label, guestType, handleOnClick }) => (
+  <button type="button" className={styles.btn} onClick={() => handleOnClick(guestType)} >
+    {label}
   </button>
 );
 

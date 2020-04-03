@@ -29,7 +29,7 @@ class Reservations extends React.Component {
       taxRate: 0,
       maxAdultGuests: 0,
       minStayNights: 0,
-      adults: 1,
+      adults: 0,
       children: 0,
       infants: 0,
     };
@@ -42,6 +42,8 @@ class Reservations extends React.Component {
     this.setCheckinDate = this.setCheckinDate.bind(this);
     this.setCheckoutDate = this.setCheckoutDate.bind(this);
     this.clearDates = this.clearDates.bind(this);
+    this.addCount = this.addCount.bind(this);
+    this.subCount = this.subCount.bind(this);
   }
 
   componentDidMount () {
@@ -128,6 +130,26 @@ class Reservations extends React.Component {
     // show all other available dates (revert temp action from setCheckinDate)
   }
 
+  addCount (guestType) {
+    if (guestType === 'adults') {
+      this.setState((state) => ({ adults: state.adults + 1 }));
+    } else if (guestType === 'children') {
+      this.setState((state) => ({ children: state.children + 1 }));
+    } else if (guestType === 'infants') {
+      this.setState((state) => ({ infants: state.infants + 1 }));
+    }
+  }
+
+  subCount (guestType) {
+    if (guestType === 'adults' && this.state.adults >= 1) {
+      this.setState((state) => ({ adults: state.adults - 1 }));
+    } else if (guestType === 'children' && this.state.children >= 1) {
+      this.setState((state) => ({ children: state.children - 1 }));
+    } else if (guestType === 'infants' && this.state.infants >= 1) {
+      this.setState((state) => ({ infants: state.infants - 1 }));
+    }
+  }
+
   render () {
     const {
       // PriceHeader
@@ -143,16 +165,16 @@ class Reservations extends React.Component {
       infants,
     } = this.state;
 
-    let formattedCheckinDate;
-    let formattedCheckoutDate;
+    // let formattedCheckinDate;
+    // let formattedCheckoutDate;
 
-    if (checkinDate) {
-      formattedCheckinDate = format(checkinDate, 'eee, PP');
-    }
+    // if (checkinDate) {
+    //   formattedCheckinDate = format(checkinDate, 'eee, PP');
+    // }
 
-    if (checkoutDate) {
-      formattedCheckoutDate = format(checkoutDate, 'eee, PP');
-    }
+    // if (checkoutDate) {
+    //   formattedCheckoutDate = format(checkoutDate, 'eee, PP');
+    // }
 
     return (
       <div className={styles.wrapper}>
@@ -163,7 +185,7 @@ class Reservations extends React.Component {
             <span>Dates</span>
           </label>
           <div className={styles.container}>
-            <input value={formattedCheckinDate} placeholder="Check-in" />
+            <input value={checkinDate} placeholder="Check-in" />
             <div>
               <svg
                 className={styles.arrow}
@@ -178,7 +200,7 @@ class Reservations extends React.Component {
                 />
               </svg>
             </div>
-            <input value={formattedCheckoutDate} placeholder="Checkout" />
+            <input value={checkoutDate} placeholder="Checkout" />
           </div>
         </div>
         <div>
@@ -186,6 +208,8 @@ class Reservations extends React.Component {
           <DatePicker
             reservations={reservations}
             selectedDate={selectedDate}
+            checkinDate={checkinDate}
+            checkoutDate={checkoutDate}
             handleCellClick={this.handleCellClick}
             clearDates={this.clearDates}
             getPrevMonth={this.getPrevMonth}
@@ -196,7 +220,13 @@ class Reservations extends React.Component {
           <label>
             <span>Guests</span>
           </label>
-          <GuestPicker />
+          <GuestPicker
+            adults={adults}
+            children={children}
+            infants={infants}
+            addCount={this.addCount}
+            subCount={this.subCount}
+          />
         </div>
         <input type="hidden" value={adults} />
         <input type="hidden" value={children} />
