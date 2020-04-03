@@ -18,8 +18,8 @@ plugins:
   - react
 rules:
   space-before-function-paren: [1, 'always']
-ignorePatterns: [
-  'bundle.js',
-  'node_modules/',
-  '__snapshots__/'
-  ]
+  ignorePatterns: [
+    'bundle.js',
+    'node_modules/',
+    '__snapshots__/'
+    ]

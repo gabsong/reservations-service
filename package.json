@@ -9,7 +9,7 @@
   "scripts": {
     "seed": "psql --username=postgres -d eightbnb < schema.sql && node server/seed/script.js",
     "build": "webpack --config webpack.prod.js && NODE_ENV=production node server/seed/script.js",
-    "react-dev": "webpack-dev-server --config webpack.dev.js",
+    "react-dev": "webpack --watch --config webpack.dev.js",
     "test-dev": "jest --config=jest.config.js --coverage --watchAll",
     "test": "jest --config=jest.config.js",
     "start-dev": "NODE_ENV=development nodemon server/server.js",

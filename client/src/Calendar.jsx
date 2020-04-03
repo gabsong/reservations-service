@@ -15,10 +15,13 @@ import {
 import Row from './Row.jsx';
 import styles from './Calendar.module.css';
 
-const Calendar = ({ selectedDate }) => {
+const Calendar = ({ selectedDate, handleCellClick }) => {
+  // a month is comprised of 7 day weeks
   const addWeeks = (startDate, givenMonth, monthArray) => {
     let currDate = startDate;
     const week = [];
+
+    // each week array has 7 day objects
     while (week.length < 7) {
       week.push({
         dateNum: getDate(currDate),
@@ -29,15 +32,16 @@ const Calendar = ({ selectedDate }) => {
     }
     monthArray.push(week);
 
+    // recurse until we have all weeks of the month
     if (getMonth(currDate) === givenMonth) {
       addWeeks(currDate, givenMonth, monthArray);
     }
   };
 
-  const collection = [];
+  const month = [];
   const firstDay = startOfWeek(startOfMonth(selectedDate));
   const currMonth = getMonth(selectedDate);
-  addWeeks(firstDay, currMonth, collection);
+  addWeeks(firstDay, currMonth, month);
 
   return (
     <div>
@@ -54,7 +58,7 @@ const Calendar = ({ selectedDate }) => {
       </div>
       <table className={styles.calendar}>
         <tbody>
-          {collection.map((week) => <Row week={week} key={week[0].weekNum} />)}
+          {month.map((week) => <Row week={week} key={week[0].weekNum} handleCellClick={handleCellClick} />)}
         </tbody>
       </table>
     </div>

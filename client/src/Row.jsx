@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import Cell from './Cell.jsx';
 import styles from './Row.module.css';
 
-const Row = ({ week }) => (
+const Row = ({ week, handleCellClick }) => (
   <tr className={styles.row}>
-    {week.map((date) => <Cell date={date} key={date.dateNum} />)}
+    {week.map((date) => <Cell date={date} key={date.dateNum} handleCellClick={handleCellClick} />)}
   </tr>
 );
 
