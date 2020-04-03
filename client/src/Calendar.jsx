@@ -4,18 +4,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  parse,
   startOfMonth,
   startOfWeek,
+  eachDayOfInterval,
   addDays,
+  subDays,
   getDate,
   getMonth,
   getYear,
   getISOWeek,
+  differenceInCalendarDays,
 } from 'date-fns';
 import Row from './Row.jsx';
 import styles from './Calendar.module.css';
 
-const Calendar = ({ selectedDate, handleCellClick }) => {
+const Calendar = ({ reservations, selectedDate, handleCellClick }) => {
+  // these are non-bookable dates
+  const unavailableDays = new Set();
+  for (let reservation of reservations) {
+    const bookedDates = eachDayOfInterval({
+      start: parse(reservation.checkin_date.substring(0,10), 'yyyy-MM-dd', new Date()),
+      end: parse(reservation.checkout_date.substring(0,10), 'yyyy-MM-dd', new Date())
+    });
+    bookedDates.forEach((day) => unavailableDays.add(day.toDateString()));
+  }
+
   // a month is comprised of 7 day weeks
   const addWeeks = (startDate, givenMonth, monthArray) => {
     let currDate = startDate;
@@ -23,11 +37,14 @@ const Calendar = ({ selectedDate, handleCellClick }) => {
 
     // each week array has 7 day objects
     while (week.length < 7) {
-      week.push({
+      const day = {
+        currDate: currDate,
         dateNum: getDate(currDate),
         weekNum: `${getYear(currDate)}-${getISOWeek(currDate)}`,
         render: getMonth(currDate) === givenMonth,
-      });
+        booked: unavailableDays.has(currDate.toDateString()),
+      }
+      week.push(day);
       currDate = addDays(currDate, 1);
     }
     monthArray.push(week);

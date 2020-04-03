@@ -4,8 +4,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './TextButton.module.css';
 
-const TextButton = ({ name }) => (
-  <button type="button" className={styles.btn}>{name}</button>
+const TextButton = ({ name, clearDates }) => (
+  <button type="button" className={styles.btn} onClick={clearDates}>
+    {name}
+  </button>
 );
 
 TextButton.propTypes = {

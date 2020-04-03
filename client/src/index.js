@@ -10,4 +10,5 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (maxInt - minInt)) + minInt;
 };
 
-ReactDOM.render(<Reservations spaceId={getRandomInt(1, 20)} />, document.getElementById('root'));
+// ReactDOM.render(<Reservations spaceId={getRandomInt(1, 20)} />, document.getElementById('root'));
+ReactDOM.render(<Reservations spaceId={13} />, document.getElementById('root'));

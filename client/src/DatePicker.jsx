@@ -11,7 +11,7 @@ import Calendar from './Calendar.jsx';
 import TextButton from './TextButton.jsx';
 import styles from './DatePicker.module.css';
 
-const DatePicker = ({ selectedDate, getPrevMonth, getNextMonth, handleCellClick }) => {
+const DatePicker = ({ reservations, selectedDate, getPrevMonth, getNextMonth, handleCellClick, clearDates }) => {
 
   const getCurrentMonthYear = (rawDate) => {
     return format(rawDate, 'MMMM yyyy');
@@ -25,11 +25,12 @@ const DatePicker = ({ selectedDate, getPrevMonth, getNextMonth, handleCellClick 
         <ArrowButton name="next" onClick={getNextMonth} />
       </div>
       <Calendar
+        reservations={reservations}
         selectedDate={selectedDate}
         handleCellClick={handleCellClick}
       />
       <div className={styles.btnText}>
-        <TextButton name="Clear dates" />
+        <TextButton name="Clear dates" clearDates={clearDates}/>
       </div>
     </div>
   );

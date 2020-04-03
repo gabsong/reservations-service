@@ -4,7 +4,7 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { format, addMonths, subMonths } from 'date-fns';
+import { parse, format, addMonths, subMonths, isBefore } from 'date-fns';
 import PriceHeader from './PriceHeader.jsx';
 import DatePicker from './DatePicker.jsx';
 import GuestPicker from './GuestPicker.jsx';
@@ -39,6 +39,9 @@ class Reservations extends React.Component {
     this.getPrevMonth = this.getPrevMonth.bind(this);
     this.getNextMonth = this.getNextMonth.bind(this);
     this.handleCellClick = this.handleCellClick.bind(this);
+    this.setCheckinDate = this.setCheckinDate.bind(this);
+    this.setCheckoutDate = this.setCheckoutDate.bind(this);
+    this.clearDates = this.clearDates.bind(this);
   }
 
   componentDidMount () {
@@ -84,8 +87,24 @@ class Reservations extends React.Component {
       });
   }
 
-  handleCellClick (event) {
-    console.log(event.target);
+  handleCellClick (date) {
+    const { checkinDate, checkoutDate } = this.state;
+    if (checkinDate === '') {
+      this.setCheckinDate(date);
+    } else if (isBefore(date, checkinDate)) {
+      this.setCheckoutDate('');
+      this.setCheckinDate(date);
+    } else {
+      this.setCheckoutDate(date);
+    }
+  }
+
+  clearDates () {
+    const { checkinDate, checkoutDate } = this.state;
+    this.setState({
+      checkinDate: '',
+      checkoutDate: '',
+    });
   }
 
   getPrevMonth () {
@@ -98,23 +117,42 @@ class Reservations extends React.Component {
     this.setState({ selectedDate: addMonths(selectedDate, 1) });
   }
 
-  setCheckInDate () {
-    this.setState({
-      // will set checkinDate to whatever selecte cell's value / position
-    });
+  setCheckinDate (checkinDate) {
+    this.setState({ checkinDate });
+    // only make dates until the next booking available
+    // disable other dates temporarily
+  }
+
+  setCheckoutDate (checkoutDate) {
+    this.setState({ checkoutDate });
+    // show all other available dates (revert temp action from setCheckinDate)
   }
 
   render () {
     const {
-      spaceId,
+      // PriceHeader
       nightlyRate,
+      // DatePicker
+      reservations,
       selectedDate,
       checkinDate,
       checkoutDate,
+      // GuestCounter
       adults,
       children,
       infants,
     } = this.state;
+
+    let formattedCheckinDate;
+    let formattedCheckoutDate;
+
+    if (checkinDate) {
+      formattedCheckinDate = format(checkinDate, 'eee, PP');
+    }
+
+    if (checkoutDate) {
+      formattedCheckoutDate = format(checkoutDate, 'eee, PP');
+    }
 
     return (
       <div className={styles.wrapper}>
@@ -125,7 +163,7 @@ class Reservations extends React.Component {
             <span>Dates</span>
           </label>
           <div className={styles.container}>
-            <input value={checkinDate} placeholder="Check-in" />
+            <input value={formattedCheckinDate} placeholder="Check-in" />
             <div>
               <svg
                 className={styles.arrow}
@@ -140,18 +178,19 @@ class Reservations extends React.Component {
                 />
               </svg>
             </div>
-            <input value={checkoutDate} placeholder="Checkout" />
+            <input value={formattedCheckoutDate} placeholder="Checkout" />
           </div>
         </div>
         <div>
+          {/* pick check-in date */}
           <DatePicker
-            spaceId="2"
-            handleCellClick={this.handleCellClick}
+            reservations={reservations}
             selectedDate={selectedDate}
+            handleCellClick={this.handleCellClick}
+            clearDates={this.clearDates}
             getPrevMonth={this.getPrevMonth}
             getNextMonth={this.getNextMonth}
           />
-          {checkinDate !== '' && <DatePicker handleCellClick={this.handleCellClick} />}
         </div>
         <div className={styles.fieldSet}>
           <label>
@@ -162,9 +201,8 @@ class Reservations extends React.Component {
         <input type="hidden" value={adults} />
         <input type="hidden" value={children} />
         <input type="hidden" value={infants} />
-        {checkinDate !== ''
-          && checkinDate !== ''
-          && <PriceChart />}
+        {/* set condition to hide price chart */}
+        <PriceChart />
         <div>
           <ReserveButton label="Reserve" />
           <div>You won&apos;t be charged yet</div>
