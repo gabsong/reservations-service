@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use('/', express.static(path.join(__dirname, '../public'))); // for serving static files
 
 // Set up routes
-app.use('/reservations', reservationsRouter);
 app.use('/spaces', spacesRouter);
+app.use('/reservations', reservationsRouter);
 
 // Error-handling
 app.use(function (err, req, res, next) {

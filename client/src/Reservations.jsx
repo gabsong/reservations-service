@@ -37,24 +37,26 @@ class Reservations extends React.Component {
       showGuestPicker: false,
     };
 
+    this.handleSumbit = this.handleSumbit.bind(this);
     this.getSpaceInfo = this.getSpaceInfo.bind(this);
     this.getReservations = this.getReservations.bind(this);
-    this.getPrevMonth = this.getPrevMonth.bind(this);
-    this.getNextMonth = this.getNextMonth.bind(this);
     this.selectDate = this.selectDate.bind(this);
     this.setCheckinDate = this.setCheckinDate.bind(this);
     this.setCheckoutDate = this.setCheckoutDate.bind(this);
     this.clearDates = this.clearDates.bind(this);
+    this.getPrevMonth = this.getPrevMonth.bind(this);
+    this.getNextMonth = this.getNextMonth.bind(this);
     this.addCount = this.addCount.bind(this);
     this.subCount = this.subCount.bind(this);
     this.toggleGuestPicker = this.toggleGuestPicker.bind(this);
     this.toggleDatePicker = this.toggleDatePicker.bind(this);
-    this.handleSumbit = this.handleSumbit.bind(this);
   }
 
   componentDidMount() {
-    this.getSpaceInfo();
-    this.getReservations();
+    Promise.resolve(this.props.spaceId)
+      .then((spaceId) => this.getSpaceInfo(spaceId))
+      .then((spaceId) => this.getReservations(spaceId))
+      .catch(console.error)
   }
 
   handleSumbit(event) {
@@ -63,42 +65,37 @@ class Reservations extends React.Component {
     alert(`Your reservation for space #${spaceId} is $${nightlyRate / 100} per night.`);
   }
 
-  getSpaceInfo() {
-    const { spaceId } = this.state;
-    axios.get('/spaces', {
-      params: {
-        id: spaceId,
-      },
-    })
-      .then((response) => {
-        const { data } = response;
-        this.setState({
-          nightlyRate: data.nightly_rate_cents,
-          cleaningFee: data.cleaning_fee_cents / 100,
-          serviceFee: data.service_fee_cents / 100,
-          taxRate: data.tax_rate_cents / 100,
-          maxAdultGuests: data.max_adult_guests,
-          minStayNights: data.min_stay_nights,
-        });
-      })
-      .catch((error) => {
-        console.error(error);
+  async getSpaceInfo(spaceId) {
+    try {
+      const response = await axios.get(`/spaces/${spaceId}`);
+      const { data } = response;
+      this.setState({
+        nightlyRate: data.nightly_rate_cents,
+        cleaningFee: data.cleaning_fee_cents,
+        serviceFee: data.service_fee_cents,
+        taxRate: data.tax_rate_cents,
+        maxAdultGuests: data.max_adult_guests,
+        minStayNights: data.min_stay_nights,
       });
+      return spaceId;
+    } catch (err) {
+      console.error(err);
+    }
   }
 
-  getReservations() {
-    const { spaceId } = this.state;
-    axios.get('/reservations', {
-      params: {
-        spaceId,
-      },
-    })
-      .then((response) => {
-        this.setState({ reservations: response.data });
-      })
-      .catch((error) => {
-        console.error(error);
+  async getReservations(spaceId) {
+    try {
+      const response = await axios.get(`/reservations`, {
+        params: {
+          spaceId,
+        }
       });
+      const { data } = response;
+      this.setState({ reservations: data });
+      // return undefined
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   selectDate(date) {
@@ -292,11 +289,7 @@ class Reservations extends React.Component {
 }
 
 Reservations.propTypes = {
-  spaceId: PropTypes.number,
-};
-
-Reservations.defaultProps = {
-  spaceId: null,
+  spaceId: PropTypes.number.isRequired,
 };
 
 export default Reservations;

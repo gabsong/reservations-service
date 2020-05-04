@@ -9,7 +9,7 @@ describe('<Reservations />', () => {
   let wrapper;
 
   it('renders without crashing', () => {
-    wrapper = shallow(<Reservations />);
+    wrapper = shallow(<Reservations spaceId={1} />);
   });
 
   it('matches snapshot', () => {
