@@ -49,11 +49,18 @@ class Reservations extends React.Component {
     this.subCount = this.subCount.bind(this);
     this.toggleGuestPicker = this.toggleGuestPicker.bind(this);
     this.toggleDatePicker = this.toggleDatePicker.bind(this);
+    this.handleSumbit = this.handleSumbit.bind(this);
   }
 
   componentDidMount() {
     this.getSpaceInfo();
     this.getReservations();
+  }
+
+  handleSumbit(event) {
+    const { spaceId, nightlyRate } = this.state;
+    event.preventDefault();
+    alert(`Your reservation for space #${spaceId} is $${nightlyRate / 100} per night.`);
   }
 
   getSpaceInfo() {
@@ -216,7 +223,7 @@ class Reservations extends React.Component {
     return (
       <div className={styles.wrapper}>
         <PriceHeader nightlyRate={nightlyRate} />
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={this.handleSumbit}>
           <div className={styles.fieldSet}>
             <label>
               <span>Dates</span>

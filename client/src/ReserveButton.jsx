@@ -3,8 +3,8 @@
 import React from 'react';
 import styles from './ReserveButton.module.css';
 
-const ReserveButton = (props) => (
-<button type="submit" className={styles.btn}>{props.label}</button>
+const ReserveButton = ({ label }) => (
+<button type="submit" className={styles.btn}>{label}</button>
 );
 
 export default ReserveButton;
