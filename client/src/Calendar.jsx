@@ -19,7 +19,7 @@ import {
 import Row from './Row.jsx';
 import styles from './Calendar.module.css';
 
-const Calendar = ({ reservations, selectedDate, handleCellClick, checkinDate, checkoutDate }) => {
+const Calendar = ({ reservations, selectedDate, selectDate, checkinDate, checkoutDate }) => {
   // these are non-bookable dates
   const unavailableDays = new Set();
   for (let reservation of reservations) {
@@ -76,7 +76,7 @@ const Calendar = ({ reservations, selectedDate, handleCellClick, checkinDate, ch
       </div>
       <table className={styles.calendar}>
         <tbody>
-          {month.map((week) => <Row week={week} key={week[0].weekNum} handleCellClick={handleCellClick} />)}
+          {month.map((week) => <Row week={week} key={week[0].weekNum} selectDate={selectDate} />)}
         </tbody>
       </table>
     </div>

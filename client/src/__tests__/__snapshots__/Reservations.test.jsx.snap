@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Reservations /> matches the snapshot 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="price-info"
+    >
+      <span
+        className="price"
+      >
+        $
+        
+        .
+        0
+      </span>
+       
+      <span
+        className="type"
+      >
+        per night
+      </span>
+    </div>
+    <div
+      className="review-info"
+    >
+      <span
+        className="star"
+      />
+      <span
+        className="rating"
+      >
+         
+        4.75
+         
+      </span>
+      <span
+        className="reviews"
+      >
+        (
+        200
+         reviews)
+      </span>
+    </div>
+  </div>
+  <form
+    className="form"
+  >
+    <div
+      className="fieldSet"
+    >
+      <label>
+        <span>
+          Dates
+        </span>
+      </label>
+      <div
+        className="container"
+      >
+        <input
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Check-in"
+          value=""
+        />
+        <div>
+          <svg
+            aria-hidden="true"
+            className="arrow"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="m0 12.5a.5.5 0 0 0 .5.5h21.79l-6.15 6.15a.5.5 0 1 0 .71.71l7-7v-.01a.5.5 0 0 0 .14-.35.5.5 0 0 0 -.14-.35v-.01l-7-7a .5.5 0 0 0 -.71.71l6.15 6.15h-21.79a.5.5 0 0 0 -.5.5z"
+              fillRule="evenodd"
+            />
+          </svg>
+        </div>
+        <input
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Checkout"
+          value=""
+        />
+      </div>
+    </div>
+    <div />
+    <div
+      className="fieldSet"
+    >
+      <label>
+        <span>
+          Guests
+        </span>
+      </label>
+      <div>
+        <div
+          className="container"
+        >
+          <button
+            className="btn"
+            onClick={[Function]}
+            type="button"
+          >
+            1 guest
+          </button>
+        </div>
+      </div>
+    </div>
+    <input
+      onChange={[Function]}
+      type="hidden"
+      value={1}
+    />
+    <input
+      onChange={[Function]}
+      type="hidden"
+      value={0}
+    />
+    <input
+      onChange={[Function]}
+      type="hidden"
+      value={0}
+    />
+    <div>
+      <button
+        className="btn"
+        type="submit"
+      >
+        Reserve
+      </button>
+      <div
+        className="memo"
+      >
+        You won't be charged yet
+      </div>
+    </div>
+  </form>
+</div>
+`;

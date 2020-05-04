@@ -8,6 +8,12 @@
 .btnText {
   display: flex;
   justify-content: flex-end;
+  color: rgb(0, 132, 137);
+}
+
+.btnText:hover {
+  text-decoration: underline;
+  color: #008489;
 }
 
 .container {
