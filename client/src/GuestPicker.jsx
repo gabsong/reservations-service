@@ -28,8 +28,8 @@ const GuestPicker = ({ adults, children, infants, addCount, subCount }) => {
       </div>
       <div className={styles.dropdown}>
         <GuestCounter label="Adults" guestCount={adults} addCount={addCount} subCount={subCount} />
-        <GuestCounter label="Children" description="Ages 2–12" guestCount={children} addCount={addCount} subCount={subCount} />
-        <GuestCounter label="Infants" description="Under 2" guestCount={infants} addCount={addCount} subCount={subCount} />
+        <GuestCounter label="Children" guestCount={children} addCount={addCount} subCount={subCount} />
+        <GuestCounter label="Infants" guestCount={infants} addCount={addCount} subCount={subCount} />
       </div>
     </div>
   );

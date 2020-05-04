@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+const { userName } = require('../../config');
+
 const { Pool } = require('pg');
 
 let dbName = 'eightbnb';
@@ -14,7 +16,7 @@ if (process.env.NODE_ENV === 'production') {
 // Postgres login information
 const pool = new Pool({
   host: hostname,
-  user: 'postgres',
+  user: userName,
   database: dbName,
   password: null,
   port: 5432,

@@ -3,7 +3,9 @@
 import React from 'react';
 
 const PriceChart = (props) => (
-  <div>This is the PriceChart component</div>
+  <React.Fragment>
+    
+  </React.Fragment>
 );
 
 export default PriceChart;
