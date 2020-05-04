@@ -62,19 +62,19 @@ describe('GET /reservations', () => {
 
 describe('POST /reservations', () => {
   test('It responds with the newly added reservation', () => {
+    const spaceId = 1;
     return request(app)
-      .post('/reservations')
+      .post(`${spaceId}/reservations`)
       .send({
         checkinDate: '2099-01-01',
         checkoutDate: '2099-12-31',
-        spaceId: 1,
       })
       .then((response) => {
         expect(response.body.checkin_date.substring(0, 10)).toBe('2099-01-01');
         expect(response.statusCode).toBe(200);
       })
       .then(() => {
-        return request(app).get('/reservations');
+        return request(app).get(`${spaceId}/reservations`);
       })
       .then((response) => expect(response.body.length).toBe(3))
       .catch((error) => console.log(error));

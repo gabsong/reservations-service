@@ -4,7 +4,7 @@ import { isPast } from 'date-fns';
 import PropTypes from 'prop-types';
 import styles from './Cell.module.css';
 
-const Cell = ({ date, handleCellClick }) => {
+const Cell = ({ date, selectDate }) => {
   const { currDate, dateNum, weekNum, render, booked, selected } = date;
 
   // if not in month
@@ -25,7 +25,7 @@ const Cell = ({ date, handleCellClick }) => {
         aria-disabled="true"
         tabIndex="-1"
         role="button"
-        onClick={() => handleCellClick(currDate)}
+        onClick={() => selectDate(currDate)}
       >
         {dateNum}
       </td>

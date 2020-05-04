@@ -1,12 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Reservations /> matches snapshot 1`] = `
+exports[`<Reservations /> matches the snapshot 1`] = `
 <div
   className="wrapper"
 >
-  <PriceHeader
-    nightlyRate={0}
-  />
+  <div
+    className="container"
+  >
+    <div
+      className="price-info"
+    >
+      <span
+        className="price"
+      >
+        $
+        
+        .
+        0
+      </span>
+       
+      <span
+        className="type"
+      >
+        per night
+      </span>
+    </div>
+    <div
+      className="review-info"
+    >
+      <span
+        className="star"
+      />
+      <span
+        className="rating"
+      >
+         
+        4.75
+         
+      </span>
+      <span
+        className="reviews"
+      >
+        (
+        200
+         reviews)
+      </span>
+    </div>
+  </div>
   <form
     className="form"
     onSubmit={[Function]}
@@ -59,16 +99,19 @@ exports[`<Reservations /> matches snapshot 1`] = `
           Guests
         </span>
       </label>
-      <GuestPicker
-        addCount={[Function]}
-        adults={1}
-        infants={0}
-        showGuestPicker={false}
-        subCount={[Function]}
-        toggleGuestPicker={[Function]}
-      >
-        0
-      </GuestPicker>
+      <div>
+        <div
+          className="container"
+        >
+          <button
+            className="btn"
+            onClick={[Function]}
+            type="button"
+          >
+            1 guest
+          </button>
+        </div>
+      </div>
     </div>
     <input
       onChange={[Function]}
@@ -86,9 +129,12 @@ exports[`<Reservations /> matches snapshot 1`] = `
       value={0}
     />
     <div>
-      <ReserveButton
-        label="Reserve"
-      />
+      <button
+        className="btn"
+        type="submit"
+      >
+        Reserve
+      </button>
       <div
         className="memo"
       >

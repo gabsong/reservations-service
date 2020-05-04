@@ -15,12 +15,8 @@ const router = new Router();
 router.get('/', async (req, res, next) => {
   try {
     const { spaceId } = req.query;
-    let data;
-    if (!spaceId) {
-      data = await db.query('SELECT * FROM reservations ORDER BY checkin_date ASC');
-    } else {
-      data = await db.query('SELECT * FROM reservations WHERE space_id = $1 ORDER BY checkin_date ASC', [spaceId]);
-    }
+    const data = await db.query('SELECT * FROM reservations WHERE space_id = $1 ORDER BY checkin_date ASC', [spaceId]);
+    // }
     return res.send(data.rows);
   } catch (err) {
     return next(err);
