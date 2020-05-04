@@ -1,6 +1,6 @@
 # Reservations Service
 
-[Demo](demo/captured.gif)
+![Demo](demo/captured.gif)
 
 **Datepicker with Calendar**
 - User interface to select check-in and check-out dates. Clicking on the inputs will show a Calendar component with selectable cells. Built in React.js.
