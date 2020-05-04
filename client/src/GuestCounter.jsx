@@ -6,7 +6,7 @@ import styles from './GuestCounter.module.css';
 
 const GuestCounter = ({ label, description, guestCount, addCount, subCount }) => (
   <div className={styles.wrapper}>
-    <div>
+    <div className={styles.description}>
       <div>{label}</div>
       <div>{description}</div>
     </div>

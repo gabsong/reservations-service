@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-state */
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
 import React from 'react';
@@ -61,7 +60,7 @@ class Reservations extends React.Component {
       .then((response) => {
         const { data } = response;
         this.setState({
-          nightlyRate: data.nightly_rate_cents / 100,
+          nightlyRate: data.nightly_rate_cents,
           cleaningFee: data.cleaning_fee_cents / 100,
           serviceFee: data.service_fee_cents / 100,
           taxRate: data.tax_rate_cents / 100,
@@ -110,43 +109,44 @@ class Reservations extends React.Component {
   }
 
   getPrevMonth () {
-    const { selectedDate } = this.state;
-    this.setState({ selectedDate: subMonths(selectedDate, 1) });
+    this.setState(({ selectedDate }) => ({ selectedDate: subMonths(selectedDate, 1) }));
   }
 
   getNextMonth () {
-    const { selectedDate } = this.state;
-    this.setState({ selectedDate: addMonths(selectedDate, 1) });
+    this.setState(({ selectedDate }) => ({ selectedDate: addMonths(selectedDate, 1) }));
   }
 
-  setCheckinDate (checkinDate) {
+  setCheckinDate (date) {
+    const checkinDate = format(date, 'eee PP');
     this.setState({ checkinDate });
     // only make dates until the next booking available
     // disable other dates temporarily
   }
 
-  setCheckoutDate (checkoutDate) {
+  setCheckoutDate (date) {
+    const checkoutDate = format(date, 'eee PP');
     this.setState({ checkoutDate });
     // show all other available dates (revert temp action from setCheckinDate)
   }
 
   addCount (guestType) {
     if (guestType === 'adults') {
-      this.setState((state) => ({ adults: state.adults + 1 }));
+      this.setState(({ adults }) => ({ adults: adults + 1 }));
     } else if (guestType === 'children') {
-      this.setState((state) => ({ children: state.children + 1 }));
+      this.setState(({ children }) => ({ children: children + 1 }));
     } else if (guestType === 'infants') {
-      this.setState((state) => ({ infants: state.infants + 1 }));
+      this.setState(({ infants }) => ({ infants: infants + 1 }));
     }
   }
 
   subCount (guestType) {
-    if (guestType === 'adults' && this.state.adults >= 1) {
-      this.setState((state) => ({ adults: state.adults - 1 }));
-    } else if (guestType === 'children' && this.state.children >= 1) {
-      this.setState((state) => ({ children: state.children - 1 }));
-    } else if (guestType === 'infants' && this.state.infants >= 1) {
-      this.setState((state) => ({ infants: state.infants - 1 }));
+    const { adults, children, infants } = this.state;
+    if (guestType === 'adults' && adults >= 1) {
+      this.setState(({ adults }) => ({ adults: adults - 1 }));
+    } else if (guestType === 'children' && children >= 1) {
+      this.setState(({ children }) => ({ children: children - 1 }));
+    } else if (guestType === 'infants' && infants >= 1) {
+      this.setState(({ infants }) => ({ infants: infants - 1 }));
     }
   }
 
@@ -164,17 +164,6 @@ class Reservations extends React.Component {
       children,
       infants,
     } = this.state;
-
-    // let formattedCheckinDate;
-    // let formattedCheckoutDate;
-
-    // if (checkinDate) {
-    //   formattedCheckinDate = format(checkinDate, 'eee, PP');
-    // }
-
-    // if (checkoutDate) {
-    //   formattedCheckoutDate = format(checkoutDate, 'eee, PP');
-    // }
 
     return (
       <div className={styles.wrapper}>
@@ -235,7 +224,7 @@ class Reservations extends React.Component {
         <PriceChart />
         <div>
           <ReserveButton label="Reserve" />
-          <div>You won&apos;t be charged yet</div>
+          <div className={styles.memo}>You won&apos;t be charged yet</div>
         </div>
       </form>
       </div>

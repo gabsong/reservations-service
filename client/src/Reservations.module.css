@@ -4,6 +4,14 @@ body {
   color: rgb(72, 72, 72);
 }
 
+button {
+  outline: none !important;
+}
+
+input {
+  padding-left: 10px;
+}
+
 .wrapper {
   padding: 16px 24px 24px 24px;
   border: 1px;
@@ -22,7 +30,7 @@ body {
 }
 
 .form input {
-  width: 144px;
+  width: 134px;
   height: 38px;
   font-size: 16px;
   font-weight: 400;
@@ -33,9 +41,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px;
-  border-style: solid;
-  border-color: rgb(228, 228, 228);
   font-size: 12px;
   font-weight: 600;
 }
@@ -49,4 +54,11 @@ body {
 
 .fieldSet {
   margin: 8px 0;
+}
+
+.memo {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  font-size: 10px;
 }
