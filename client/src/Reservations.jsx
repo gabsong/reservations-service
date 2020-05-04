@@ -174,7 +174,7 @@ class Reservations extends React.Component {
             <span>Dates</span>
           </label>
           <div className={styles.container}>
-            <input value={checkinDate} placeholder="Check-in" />
+            <input value={checkinDate} placeholder="Check-in" onChange={() => {}} />
             <div>
               <svg
                 className={styles.arrow}
@@ -189,7 +189,7 @@ class Reservations extends React.Component {
                 />
               </svg>
             </div>
-            <input value={checkoutDate} placeholder="Checkout" />
+            <input value={checkoutDate} placeholder="Checkout" onChange={() => {}} />
           </div>
         </div>
         <div>
@@ -217,9 +217,9 @@ class Reservations extends React.Component {
             subCount={this.subCount}
           />
         </div>
-        <input type="hidden" value={adults} />
-        <input type="hidden" value={children} />
-        <input type="hidden" value={infants} />
+        <input type="hidden" value={adults} onChange={() => {}}/>
+        <input type="hidden" value={children} onChange={() => {}}/>
+        <input type="hidden" value={infants} onChange={() => {}}/>
         {/* set condition to hide price chart */}
         <PriceChart />
         <div>
