@@ -3,7 +3,7 @@ import { format, addMonths, subMonths } from 'date-fns';
 import { shallow } from 'enzyme';
 import DatePicker from '../DatePicker';
 
-describe('<DatePicker />', () => {
+xdescribe('<DatePicker />', () => {
   it('does not display a calendar by default', () => {
     const wrapper = shallow(<DatePicker />);
     expect(wrapper.containsMatchingElement('Calendar')).toBe(false);

@@ -5,6 +5,6 @@ import Row from '../Row.jsx';
 import { shallow } from 'enzyme';
 
 describe('<Row />', () => {
-  it('add test here', () => {
+  xit('add test here', () => {
   });
 });

@@ -16,4 +16,10 @@ app.use('/', express.static(path.join(__dirname, '../public'))); // for serving 
 app.use('/reservations', reservationsRouter);
 app.use('/spaces', spacesRouter);
 
+// Error-handling
+app.use(function (err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).render('error', { error: err });
+});
+
 module.exports = app;

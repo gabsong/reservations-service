@@ -49,6 +49,7 @@ exports[`<Reservations /> matches the snapshot 1`] = `
   </div>
   <form
     className="form"
+    onSubmit={[Function]}
   >
     <div
       className="fieldSet"

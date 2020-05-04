@@ -82,7 +82,7 @@ class Reservations extends React.Component {
         });
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }
 
@@ -97,7 +97,7 @@ class Reservations extends React.Component {
         this.setState({ reservations: response.data });
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }
 
@@ -278,8 +278,9 @@ class Reservations extends React.Component {
           <input type="hidden" value={adults} onChange={() => { }} />
           <input type="hidden" value={children} onChange={() => { }} />
           <input type="hidden" value={infants} onChange={() => { }} />
-          {/* set condition to hide price chart */}
-          <PriceChart />
+          {checkinDate && checkoutDate &&
+            <PriceChart />
+          }
           <div>
             <ReserveButton label="Reserve" />
             <div className={styles.memo}>You won&apos;t be charged yet</div>

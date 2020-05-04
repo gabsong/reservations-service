@@ -3,13 +3,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json'; // for snapshotting the component
-import Reserve from '../Reserve.jsx';
+import Reservations from '../Reservations.jsx';
 
-describe('<Reserve />', () => {
+describe('<Reservations />', () => {
   let wrapper;
 
   it('renders without crashing', () => {
-    wrapper = shallow(<Reserve />);
+    wrapper = shallow(<Reservations />);
   });
 
   it('matches snapshot', () => {
