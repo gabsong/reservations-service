@@ -27,3 +27,7 @@ dist/
 
 # Secret files
 config.js
+
+# Other
+.vscode/
+.nvmrc

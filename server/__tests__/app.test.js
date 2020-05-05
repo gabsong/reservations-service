@@ -1,7 +1,7 @@
 process.env.NODE_ENV = 'test';
 const request = require('supertest');
-const db = require('./db/index.js');
-const app = require('./app.js');
+const db = require('../db/index.js');
+const app = require('../app.js');
 
 beforeAll(async () => {
   const createSpacesTable = `CREATE TABLE public.spaces (
