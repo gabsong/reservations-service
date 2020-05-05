@@ -7,15 +7,29 @@
 Requirements:
 - Node 12 (Mac: via nvm or asdf-vm)
 - PostgreSQL 12 (Mac: via homebrew)
-  - Rename config.example.js to config.js and update with your psql username
-  - Create the databases `vacationrentals` and `test` in advance
+
+Setup PostgreSQL:
+```sh
+% brew install postgresql
+% brew services start postgresql
+```
+
+Populate with mock data:
+- Rename config.example.js to config.js and update with your computer username (default username in homebrew postgres): `% id -un`
+- Enter the postgres shell: `% psql postgres`
+- Create the databases `vacationrentals` and `test` in advance
+```sh
+postgres=# CREATE DATABASE vacationrentals;
+postgres=# CREATE DATABASE test;
+```
+- Run seeding script: `% npm run seed`
 
 To run:
 ```sh
-git clone https://github.com/gabsong/reservations-service.git repo
-cd repo
-npm install
-npm run build && nppm start
+% git clone https://github.com/gabsong/reservations-service.git repo
+% cd repo
+% npm install
+% npm run build && nppm start
 ```
 
 ## Related Projects

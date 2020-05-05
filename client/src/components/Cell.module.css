@@ -1,0 +1,44 @@
+.cell {
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: inherit;
+  width: 41px;
+  height: 40px;
+  color: rgb(72, 72, 72);
+  /* border: 1px double rgb(228, 231, 231); */
+  background: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cell:hover {
+  background-color: rgb(228, 231, 231);
+}
+
+.disabled {
+  composes: cell;
+  color: rgb(176, 176, 176);
+  text-decoration: line-through;
+}
+
+.disabled:hover {
+  background: rgb(255, 255, 255);
+}
+
+.selected {
+  composes: cell;
+}
+
+.selected:hover {
+  background-color: rgb(178, 241, 236);
+  border-color: rgb(128, 232, 224);
+}
+
+/*
+ * selected: rgb(0, 166, 153) dark green
+ * selected:hover rgb(178, 241, 236) extra-light green
+ * selected:hover rgb(128, 232, 224) light green border
+ * selected:range: rgb(102, 226, 218) light green
+ * selected:range:hover: rgb(51, 218, 205) less-light green
+ */

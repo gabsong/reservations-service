@@ -26,4 +26,8 @@ dist/
 */bundle.*
 
 # Secret files
-config.js
+server/config.js
+
+# Other
+.vscode/
+.nvmrc

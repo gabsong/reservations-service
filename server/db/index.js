@@ -1,5 +1,11 @@
 /* eslint-disable no-console */
-const { userName } = require('../../config');
+
+/**
+ * @file Opens a connection to the PostgreSQL database
+ * Use environment variables to pass ENV information.
+ */
+
+const { userName } = require('../config');
 
 const { Pool } = require('pg');
 
