@@ -77,7 +77,7 @@ class Reservations extends React.Component {
         maxAdultGuests: data.max_adult_guests,
         minStayNights: data.min_stay_nights,
       });
-      return spaceId;
+      return spaceId; // used by getReservations in promise chain
     } catch (err) {
       console.error(err);
     }
@@ -92,7 +92,6 @@ class Reservations extends React.Component {
       });
       const { data } = response;
       this.setState({ reservations: data });
-      // return undefined
     } catch (err) {
       console.error(err);
     }
@@ -117,8 +116,7 @@ class Reservations extends React.Component {
   setCheckinDate(checkinDate) {
     const formattedCheckinDate = format(checkinDate, 'eee P');
     this.setState({ checkinDate, formattedCheckinDate });
-    // only make dates until the next booking available
-    // disable other dates temporarily
+    // Feature: only make dates until the next booking available and disable other dates temporarily
   }
 
   setCheckoutDate(checkoutDate) {
@@ -129,7 +127,7 @@ class Reservations extends React.Component {
       formattedCheckoutDate = '';
     }
     this.setState({ checkoutDate, formattedCheckoutDate });
-    // show all other available dates (revert temp action from setCheckinDate)
+    // Feature: show all other available dates (revert temp action from setCheckinDate)
   }
 
   clearDates() {
@@ -200,9 +198,7 @@ class Reservations extends React.Component {
 
   render() {
     const {
-      // PriceHeader
       nightlyRate,
-      // DatePicker
       showDatePicker,
       reservations,
       selectedDate,
@@ -210,7 +206,6 @@ class Reservations extends React.Component {
       formattedCheckinDate,
       checkoutDate,
       formattedCheckoutDate,
-      // GuestCounter
       showGuestPicker,
       adults,
       children,
