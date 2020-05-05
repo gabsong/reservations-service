@@ -3,7 +3,7 @@ const { userName } = require('../../config');
 
 const { Pool } = require('pg');
 
-let dbName = 'eightbnb';
+let dbName = 'vacationrentals';
 if (process.env.NODE_ENV === 'test') {
   dbName = 'test';
 }

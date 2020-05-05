@@ -26,4 +26,4 @@ dist/
 */bundle.*
 
 # Secret files
-config.*
+config.js

@@ -7,7 +7,7 @@
     "node": "12.^14.1"
   },
   "scripts": {
-    "seed": "psql --username=gabrielsong -d eightbnb < schema.sql && node server/seed/script.js",
+    "seed": "psql -d vacationrentals < schema.sql && node server/seed/script.js",
     "build": "webpack --config webpack.prod.js && NODE_ENV=production node server/seed/script.js",
     "react-dev": "webpack --watch --config webpack.dev.js",
     "test-dev": "jest --config=jest.config.js --coverage --watchAll",
