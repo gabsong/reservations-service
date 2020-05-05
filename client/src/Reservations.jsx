@@ -4,12 +4,12 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { parse, format, addMonths, subMonths, isBefore } from 'date-fns';
-import PriceHeader from './PriceHeader.jsx';
-import DatePicker from './DatePicker.jsx';
-import GuestPicker from './GuestPicker.jsx';
-import PriceChart from './PriceChart.jsx';
-import ReserveButton from './ReserveButton.jsx';
 import styles from './Reservations.module.css';
+import PriceHeader from './components/PriceHeader.jsx';
+import DatePicker from './components/DatePicker.jsx';
+import GuestPicker from './components/GuestPicker.jsx';
+import PriceChart from './components/PriceChart.jsx';
+import ReserveButton from './components/ReserveButton.jsx';
 
 // Reservations stores state for current reservation
 class Reservations extends React.Component {

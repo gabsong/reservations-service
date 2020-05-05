@@ -10,7 +10,7 @@ const app = express();
 app.use(morgan('dev')); // for logging http requests to the terminal
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use('/', express.static(path.join(__dirname, '../public'))); // for serving static files
+app.use('/', express.static(path.join(__dirname, '../client/public'))); // for serving static files
 
 // Set up routes
 app.use('/spaces', spacesRouter);

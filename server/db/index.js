@@ -5,7 +5,7 @@
  * Use environment variables to pass ENV information.
  */
 
-const { userName } = require('../../config');
+const { userName } = require('../config');
 
 const { Pool } = require('pg');
 
