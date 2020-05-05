@@ -29,7 +29,7 @@ To run:
 % git clone https://github.com/gabsong/reservations-service.git repo
 % cd repo
 % npm install
-% npm run build && nppm start
+% npm run build && npm start
 ```
 
 ## Related Projects
